@@ -1,12 +1,12 @@
-import { setupMonacoWorkers } from 'niuma-ui'
+import { setupMonacoWorkers } from 'ensis-ui'
 setupMonacoWorkers()
 
 import { createApp } from 'vue'
 import App from './App.vue'
 import { i18n } from './i18n'
 import router from './router'
-import 'niuma-ui/styles.css'
-import 'niuma-ui/brand-icons.css'
+import 'ensis-ui/styles.css'
+import 'ensis-ui/brand-icons.css'
 import './style.css'
 import './theme-brand.css'
 

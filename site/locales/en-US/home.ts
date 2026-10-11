@@ -2,7 +2,7 @@ import type { SiteMessages } from '../zh-CN'
 
 export const home: SiteMessages['home'] = {
   kicker: 'Vue 3 · Apache 2.0',
-  title: 'Niuma UI',
+  title: 'Ensis UI',
   slogan: 'An enterprise component library for consoles and desktop workbenches',
   intro:
     'Consistent Rs* components and design tokens — forms, tables, trees, dialogs, plus Monaco and terminal surfaces for professional tools.',

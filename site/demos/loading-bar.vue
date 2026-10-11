@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref } from 'vue'
-import { RsButton, RsLoadingBar, useRsLoadingBar, type RsLoadingBarExpose } from 'niuma-ui'
+import { RsButton, RsLoadingBar, useRsLoadingBar, type RsLoadingBarExpose } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

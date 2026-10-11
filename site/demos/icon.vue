@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, defineComponent, h, ref } from 'vue'
-import { registerRsIcon, RsButton, RsIcon, rsBrandIconNames } from 'niuma-ui'
+import { registerRsIcon, RsButton, RsIcon, rsBrandIconNames } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
@@ -71,7 +71,7 @@ const transformCode = `<RsIcon name="chevron-right" flip="horizontal" />
 <RsIcon name="chevron-right" :rotate="90" />
 <RsIcon name="loader" spin />`
 
-const brandCode = `import 'niuma-ui/brand-icons.css'
+const brandCode = `import 'ensis-ui/brand-icons.css'
 
 <RsIcon name="mysql" />
 <RsIcon name="postgres" />
@@ -100,7 +100,7 @@ const SiteMark = defineComponent({
 })
 registerRsIcon('site-mark', SiteMark)
 
-const registerCode = `import { registerRsIcon } from 'niuma-ui'
+const registerCode = `import { registerRsIcon } from 'ensis-ui'
 
 registerRsIcon('site-mark', SiteMark)
 
@@ -268,8 +268,8 @@ function inspectIconRef() {
     id="demo-brand"
     title="品牌 mark"
     title-en="Brand marks"
-    description="工作台数据源 mark。填充色走 --rs-icon-{name}-accent，需引入 niuma-ui/brand-icons.css。也可传 color 覆盖。"
-    description-en="Workbench data-source marks. Fill uses --rs-icon-{name}-accent after you import niuma-ui/brand-icons.css. color overrides the accent."
+    description="工作台数据源 mark。填充色走 --rs-icon-{name}-accent，需引入 ensis-ui/brand-icons.css。也可传 color 覆盖。"
+    description-en="Workbench data-source marks. Fill uses --rs-icon-{name}-accent after you import ensis-ui/brand-icons.css. color overrides the accent."
     :code="brandCode"
   >
     <div class="row">

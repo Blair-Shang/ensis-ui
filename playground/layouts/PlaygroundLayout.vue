@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import { RsButton, RsContainer, RsInput, RsLabel, RsSelect, useRsConfig } from 'niuma-ui'
+import { RsButton, RsContainer, RsInput, RsLabel, RsSelect, useRsConfig } from 'ensis-ui'
 import {
   playgroundGroupOrder,
   playgroundRoutes,
@@ -102,7 +102,7 @@ watch(
       <div class="pg-shell__toolbar">
         <a
           class="pg-shell__repo"
-          href="https://blair-shang.github.io/niuma-ui/"
+          href="https://blair-shang.github.io/ensis-ui/"
           target="_blank"
           rel="noreferrer"
         >
@@ -110,7 +110,7 @@ watch(
         </a>
         <a
           class="pg-shell__repo"
-          href="https://github.com/Blair-Shang/niuma-ui"
+          href="https://github.com/Blair-Shang/ensis-ui"
           target="_blank"
           rel="noreferrer"
         >

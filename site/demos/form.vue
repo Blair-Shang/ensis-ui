@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { RsButton, RsForm, RsFormItem, RsInput, type RsFormExpose } from 'niuma-ui'
+import { RsButton, RsForm, RsFormItem, RsInput, type RsFormExpose } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

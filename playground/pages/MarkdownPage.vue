@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsMarkdown, type RsMarkdownMode } from 'niuma-ui'
+import { RsMarkdown, type RsMarkdownMode } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

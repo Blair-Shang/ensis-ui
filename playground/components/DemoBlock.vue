@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsCodeBlock, useRsConfig } from 'niuma-ui'
+import { RsButton, RsCodeBlock, useRsConfig } from 'ensis-ui'
 
 const props = defineProps<{
   title?: string

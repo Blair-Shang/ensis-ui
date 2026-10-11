@@ -8,7 +8,7 @@ import {
   type RsToolbarBorder,
   type RsToolbarExpose,
   type RsToolbarSize,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

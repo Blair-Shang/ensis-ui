@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import { RsCodeBlock } from 'niuma-ui'
+import { RsCodeBlock } from 'ensis-ui'
 import type { ComponentDoc } from '../catalog/types'
 import { relatedComponentLabel } from '../composables/doc-nav'
 import { useSiteI18n } from '../composables/use-site-i18n'
@@ -18,7 +18,7 @@ const { locale, chrome, pair } = useSiteI18n()
 const copy = computed(() => chrome.value.doc)
 
 const importCode = computed(
-  () => `import { ${props.doc.name} } from 'niuma-ui'`,
+  () => `import { ${props.doc.name} } from 'ensis-ui'`,
 )
 
 const heading = computed(() =>

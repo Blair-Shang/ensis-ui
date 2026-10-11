@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsContextMenu, RsMonacoEditor } from 'niuma-ui'
+import { RsButton, RsContextMenu, RsMonacoEditor } from 'ensis-ui'
 import type {
   MonacoCompletionContext,
   MonacoCompletionSnippet,
@@ -9,11 +9,11 @@ import type {
   RsContextMenuItem,
   RsMonacoEditorContextMenu,
   RsMonacoEditorInstance,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
-const code = ref('{\n  "name": "niuma-ui",\n  "active": true\n}')
+const code = ref('{\n  "name": "ensis-ui",\n  "active": true\n}')
 const schemaJson = ref('{\n  "name": "Ada",\n  "age": 36\n}')
 const locked = ref('{\n  "note": "read-only"\n}')
 const minimapOn = ref(true)
@@ -130,7 +130,7 @@ const { copy } = useSiteDemo({
 
 const eventNote = computed(() => eventLog.value || copy.value.eventIdle)
 const methodNote = computed(() => methodLog.value || copy.value.methodIdle)
-const menuDoc = ref('{\n  "name": "niuma-ui"\n}')
+const menuDoc = ref('{\n  "name": "ensis-ui"\n}')
 const nativeMenu = ref(false)
 const menuLog = ref('')
 const menuRef = ref<RsContextMenuExpose | null>(null)

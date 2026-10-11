@@ -1,7 +1,7 @@
-# niuma-ui
+# ensis-ui
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
-[![npm](https://img.shields.io/npm/v/niuma-ui.svg)](https://www.npmjs.com/package/niuma-ui)
+[![npm](https://img.shields.io/npm/v/ensis-ui.svg)](https://www.npmjs.com/package/ensis-ui)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5+-42b883.svg)](https://vuejs.org/)
 [![Node](https://img.shields.io/badge/Node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
 
@@ -11,16 +11,16 @@ Vue 3 **工作台**设计系统：一致的 `Rs*` 组件与 `--rs-*` Token，以
 
 适用于运维控制台、数据库工作台、内部后台。营销站也可以用具名导入。`npm install` 会带上 Monaco、CodeMirror、xterm，体积靠具名导入摇树。
 
-**状态：** [Apache License 2.0](./LICENSE)，自 v1.0.0 开源。自 v1.2.0 起 npm 发布编译 ESM。当前主线 **2.0.0**。1.x 见分支 `1.x`。
+**状态：** [Apache License 2.0](./LICENSE)，自 v1.0.0 开源。自 v1.2.0 起 npm 发布编译 ESM。当前主线 **3.0.0**（`ensis-ui`）。`1.x` / `2.x` 仍在 npm 包 `niuma-ui`。
 
 ## 特性
 
 - **Design Token**：明暗主题走 `data-rs-theme`（`light` / `dark` / `system`）与 CSS 变量，宿主用品牌层覆盖
 - **Rs\* 组件**：Button、Form、Dialog、Table、Tree、Tabs、Anchor 等
 - **专业工具**：Monaco、CodeMirror、xterm（只在用到的路由引入）
-- **无障碍**：原生控件与 ARIA，应用只依赖 `niuma-ui`
+- **无障碍**：原生控件与 ARIA，应用只依赖 `ensis-ui`
 - **国际化**：未设 `locale` 时跟本机语言（中文系统就是 `zh-CN`）；认不出回退中文。第三方语言用 `registerRsLocale`，见 [docs/locales.md](./docs/locales.md)
-- **Vite**：`import { RsButton } from 'niuma-ui'` 即可打包；`niumaUiHost` 仅本机 `pnpm dev` 联调源码
+- **Vite**：`import { RsButton } from 'ensis-ui'` 即可打包；`ensisUiHost` 仅本机 `pnpm dev` 联调源码
 
 ## 要求
 
@@ -30,16 +30,16 @@ Vue 3 **工作台**设计系统：一致的 `Rs*` 组件与 `--rs-*` Token，以
 | 包管理器 | npm / pnpm / yarn（本仓库开发用 pnpm ≥ 9） |
 | Vue | ^3.5（peerDependency） |
 | 打包器 | 推荐 Vite 5+；`RsMonacoEditor` 需要 Vite 处理 `?worker` |
-| 样式 | `import 'niuma-ui/styles.css'`（独立 CSS，不含 Tailwind） |
+| 样式 | `import 'ensis-ui/styles.css'`（独立 CSS，不含 Tailwind） |
 
 ## 安装
 
 ```bash
-pnpm add niuma-ui
-# 或 npm install niuma-ui / yarn add niuma-ui
+pnpm add ensis-ui
+# 或 npm install ensis-ui / yarn add ensis-ui
 ```
 
-建议锁定兼容范围，例如 `^2.0.0`。精确复现请钉死 **2.0.0**。1.x 请用 `niuma-ui@1`。
+建议锁定兼容范围，例如 `^3.0.0`。精确复现请钉死 **3.0.0**。2.x 请用 `niuma-ui@2`，1.x 请用 `niuma-ui@1`。
 
 本地改源码、Vite 插件、包体积见 **[消费方指南](./docs/consumers.md)**（[English](./docs/consumers.en.md)）。
 
@@ -48,7 +48,7 @@ pnpm add niuma-ui
 ```ts
 // main.ts
 import { createApp } from 'vue'
-import 'niuma-ui/styles.css'
+import 'ensis-ui/styles.css'
 import App from './App.vue'
 
 createApp(App).mount('#app')
@@ -57,7 +57,7 @@ createApp(App).mount('#app')
 ```vue
 <!-- App.vue -->
 <script setup lang="ts">
-import { RsConfigProvider, RsButton } from 'niuma-ui'
+import { RsConfigProvider, RsButton } from 'ensis-ui'
 </script>
 
 <template>
@@ -71,8 +71,8 @@ import { RsConfigProvider, RsButton } from 'niuma-ui'
 
 ## 使用约定
 
-1. 只从包根具名导入：`import { RsButton } from 'niuma-ui'`。不要 `import *`。
-2. 样式只引一次 `niuma-ui/styles.css`，再加载你的品牌 CSS。
+1. 只从包根具名导入：`import { RsButton } from 'ensis-ui'`。不要 `import *`。
+2. 样式只引一次 `ensis-ui/styles.css`，再加载你的品牌 CSS。
 3. 根节点包 `RsConfigProvider`（主题、语言、默认控件尺寸）。
 4. 轻量站点在自己的 `ui.ts` 里再导出用到的符号。不要把包名别名到本仓库的 `src/index.ts`。
 
@@ -80,7 +80,7 @@ import { RsConfigProvider, RsButton } from 'niuma-ui'
 
 ## 文档
 
-- **组件文档（官网）**：[https://blair-shang.github.io/niuma-ui/](https://blair-shang.github.io/niuma-ui/)（源码 `site/`）
+- **组件文档（官网）**：[https://blair-shang.github.io/ensis-ui/](https://blair-shang.github.io/ensis-ui/)（源码 `site/`）
 - 本地文档站：`pnpm dev:site` → http://127.0.0.1:5181
 - **演示与 API 写法**：[site/README.md](./site/README.md)（[English](./site/README.en.md)）— catalog 必须写清 props / events / slots / methods，演示要中英对照且事件可感知
 - `playground/` 仅内部冒烟与像素回归（`pnpm dev` → :5180），不提供对外用法
@@ -124,7 +124,7 @@ pnpm build        # 库 → dist/
 
 图标：[Lucide](https://lucide.dev/)。编辑器：[Monaco](https://microsoft.github.io/monaco-editor/)、[CodeMirror](https://codemirror.net/)。终端：[xterm.js](https://xtermjs.org/)。
 
-- 文档站：https://blair-shang.github.io/niuma-ui/
-- npm：https://www.npmjs.com/package/niuma-ui
-- 源码：https://github.com/Blair-Shang/niuma-ui
-- Issues：https://github.com/Blair-Shang/niuma-ui/issues
+- 文档站：https://blair-shang.github.io/ensis-ui/
+- npm：https://www.npmjs.com/package/ensis-ui
+- 源码：https://github.com/Blair-Shang/ensis-ui
+- Issues：https://github.com/Blair-Shang/ensis-ui/issues

@@ -1,6 +1,6 @@
 export const home = {
   kicker: 'Vue 3 · Apache 2.0',
-  title: 'Niuma UI',
+  title: 'Ensis UI',
   slogan: '为控制台与桌面工作台打造的企业级组件库',
   intro:
     '一致的 Rs* 组件与设计 Token。覆盖表单、表格、树、对话框，以及 Monaco / 终端等专业工具面。',

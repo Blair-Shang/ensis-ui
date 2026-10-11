@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { RsButton, RsIcon } from 'niuma-ui'
+import { RsButton, RsIcon } from 'ensis-ui'
 import { siteConfig } from '../config'
 import { siteLocaleShort } from '../i18n'
 import { useSiteI18n } from '../composables/use-site-i18n'

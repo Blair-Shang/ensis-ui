@@ -13,7 +13,7 @@ export const SITE_LOCALES = ['zh-CN', 'en-US'] as const
 
 export type SiteLocale = (typeof SITE_LOCALES)[number]
 
-export const SITE_LOCALE_STORAGE_KEY = 'niuma-ui-site-locale'
+export const SITE_LOCALE_STORAGE_KEY = 'ensis-ui-site-locale'
 
 /** 顶栏语言钮上的短标签（显示「下一个」语言）。 */
 export const SITE_LOCALE_SHORT: Record<SiteLocale, string> = {
@@ -104,7 +104,7 @@ export function pickSiteRecord<T>(table: Partial<Record<string, T>>, locale: str
   if (table['zh-CN'] != null) return table['zh-CN']
   const first = Object.values(table).find((value) => value != null)
   if (first != null) return first
-  throw new Error('[niuma-ui site] empty locale table')
+  throw new Error('[ensis-ui site] empty locale table')
 }
 
 /** catalog / DocDemo 的中英成对字段。非中文回退英文（没有英文再用中文）。 */

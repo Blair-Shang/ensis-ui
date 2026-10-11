@@ -1,6 +1,6 @@
 import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRsConfig } from 'niuma-ui'
+import { useRsConfig } from 'ensis-ui'
 import {
   nextSiteLocale,
   pickSitePair,

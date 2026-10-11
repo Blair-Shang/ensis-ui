@@ -388,7 +388,7 @@ html {
   --rs-calendar-grid-in-range: color-mix(in srgb, var(--rs-primary) 12%, transparent);
   --rs-calendar-grid-disabled-opacity: 0.38;
 
-  /* Lucide / 线性图标。品牌 mark 色在可选 niuma-ui/brand-icons.css */
+  /* Lucide / 线性图标。品牌 mark 色在可选 ensis-ui/brand-icons.css */
   --rs-icon-color: currentColor;
 
   /* 虚拟列表。超长时滚动条压缩，行本身仍是真实像素。 */

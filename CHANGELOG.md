@@ -6,6 +6,14 @@
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-10-11
+
+### 变更
+
+- 包名由 `niuma-ui` 改为 `ensis-ui`。npm 与 GitHub 仓库已切换。从本版本起安装 `ensis-ui`。`1.x` / `2.x` 仍从 `niuma-ui` 安装。
+- 宿主插件由 `niumaUiHost`（`niuma-ui/vite-plugins/niuma-ui-host`）改为 `ensisUiHost`（`ensis-ui/vite-plugins/ensis-ui-host`）。本地改写仍认旧导入 `@niuma/ui` 与 `niuma-ui`。
+- 文档站 GitHub Pages 路径改为 `/ensis-ui/`。产品域名不变。
+
 ## [2.1.8] - 2026-10-10
 
 ### 修复

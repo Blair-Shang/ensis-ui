@@ -9,7 +9,7 @@ import {
   type RsSelectLabeledValue,
   type RsSelectOption,
   type RsSelectOptionGroup,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage, { type DemoApiRow } from '../components/DemoPage.vue'
 

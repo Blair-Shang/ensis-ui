@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RsBadge } from 'niuma-ui'
+import { RsBadge } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 </script>

@@ -19,12 +19,12 @@ const match = md.match(
 )
 const section = (match ? match[1] : '').trim()
 const body = [
-  section || `niuma-ui ${version}`,
+  section || `ensis-ui ${version}`,
   '',
   '---',
   '',
-  `完整记录见 [CHANGELOG.md](https://github.com/Blair-Shang/niuma-ui/blob/v${version}/CHANGELOG.md)。`,
-  `npm: [\`niuma-ui@${version}\`](https://www.npmjs.com/package/niuma-ui/v/${version})`,
+  `完整记录见 [CHANGELOG.md](https://github.com/Blair-Shang/ensis-ui/blob/v${version}/CHANGELOG.md)。`,
+  `npm: [\`ensis-ui@${version}\`](https://www.npmjs.com/package/ensis-ui/v/${version})`,
 ].join('\n')
 
 fs.writeFileSync(outfile, `${body}\n`)

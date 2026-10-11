@@ -1,16 +1,16 @@
 # Component guidelines
 
-This is the **architecture contract** for `niuma-ui`. Read it before changing a component, adding an export, or touching tokens. Breaking the red lines below breaks the architecture: ship a MAJOR or revert.
+This is the **architecture contract** for `ensis-ui`. Read it before changing a component, adding an export, or touching tokens. Breaking the red lines below breaks the architecture: ship a MAJOR or revert.
 
 Chinese: [components.md](./components.md). Keep both inventories in sync. Hosts: [consumers.en.md](./consumers.en.md) / [consumers.md](./consumers.md). Process: [CONTRIBUTING.en.md](../CONTRIBUTING.en.md) / [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 Stable imports come only from the package root:
 
 ```ts
-import { RsButton, RsConfigProvider } from 'niuma-ui'
+import { RsButton, RsConfigProvider } from 'ensis-ui'
 ```
 
-**Do not** import `reka-ui`. **Do not** use undocumented deep paths (`niuma-ui/src/…`, internal `*-utils` files).
+**Do not** import `reka-ui`. **Do not** use undocumented deep paths (`ensis-ui/src/…`, internal `*-utils` files).
 
 ---
 
@@ -139,7 +139,7 @@ Do not add a second `components/` at the repo root. `playground-dist` / `site-di
 | `files` | Only `dist`, `LICENSE`, `NOTICE`, `README*.md`, `CHANGELOG.md` |
 | Forbidden | `exports["./*"]`; putting `src/`, `docs/`, or `site/` in `files` |
 
-Hosts import `{ RsButton } from 'niuma-ui'` and `'niuma-ui/styles.css'` only. Deep paths (`niuma-ui/src/…`, internal `*-utils`) are not SemVer.
+Hosts import `{ RsButton } from 'ensis-ui'` and `'ensis-ui/styles.css'` only. Deep paths (`ensis-ui/src/…`, internal `*-utils`) are not SemVer.
 
 ---
 
@@ -172,7 +172,7 @@ Installable color themes use `applyColorTheme`. A theme is `{ id, label, uiTheme
 
 Text tokens are `--rs-text-primary` / `--rs-text-secondary` / `--rs-text-tertiary` / `--rs-text-disabled` / `--rs-text-inverse` / `--rs-text-link`. `--rs-text` / `--rs-muted` / `--rs-placeholder` are aliases only — do not use them in new overrides.
 
-Lucide strokes use `--rs-icon-color`. Data-source mark colors are optional: `import 'niuma-ui/brand-icons.css'`. Without it, marks use `currentColor`.
+Lucide strokes use `--rs-icon-color`. Data-source mark colors are optional: `import 'ensis-ui/brand-icons.css'`. Without it, marks use `currentColor`.
 
 High contrast: under `forced-colors: active`, semantic tokens map to `Canvas` / `CanvasText` / `Highlight`. Components do not need their own forced-colors blocks.
 
@@ -413,7 +413,7 @@ Public usage lives only on `site/`:
 
 1. Register when-to-use, API, tokens, and FAQ in `site/catalog/components/`.
 2. Copyable examples go in `site/demos/{slug}.vue` with `DocDemo`.
-3. Local `pnpm dev:site` → http://127.0.0.1:5181 ; `pnpm build:site` deploys GitHub Pages (https://blair-shang.github.io/niuma-ui/).
+3. Local `pnpm dev:site` → http://127.0.0.1:5181 ; `pnpm build:site` deploys GitHub Pages (https://blair-shang.github.io/ensis-ui/).
 
 `playground/` is the maintainer test bench. It is **not** a second docs site:
 

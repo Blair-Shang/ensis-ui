@@ -5,8 +5,8 @@
 ## 登记
 
 ```ts
-import { registerRsLocale } from 'niuma-ui'
-import { rsLocaleMessageKeys } from 'niuma-ui'
+import { registerRsLocale } from 'ensis-ui'
+import { rsLocaleMessageKeys } from 'ensis-ui'
 
 registerRsLocale(
   'ja-JP',

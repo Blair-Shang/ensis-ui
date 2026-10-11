@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsButton, RsIcon, RsTooltip, RsTooltipProvider } from 'niuma-ui'
+import { RsButton, RsIcon, RsTooltip, RsTooltipProvider } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

@@ -7,7 +7,7 @@ import {
   createUploadFileFromContent,
   type RsUploadExpose,
   type RsUploadValidationError,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

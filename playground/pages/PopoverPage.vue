@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsButton, RsPopover } from 'niuma-ui'
+import { RsButton, RsPopover } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 import MountProbe from '../components/MountProbe.vue'

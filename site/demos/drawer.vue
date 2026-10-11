@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue'
-import { RsButton, RsDrawer, RsInput, type RsDrawerCloseReason, type RsDrawerExpose, type RsDrawerSide, type RsDrawerSize } from 'niuma-ui'
+import { RsButton, RsDrawer, RsInput, type RsDrawerCloseReason, type RsDrawerExpose, type RsDrawerSide, type RsDrawerSize } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

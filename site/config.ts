@@ -4,11 +4,11 @@ import pkg from '../package.json'
 const releaseLine = pkg.version.split('.').slice(0, 2).join('.')
 
 export const siteConfig = {
-  name: 'Niuma UI',
+  name: 'Ensis UI',
   version: pkg.version,
   releaseRange: `^${releaseLine}.0`,
   license: 'Apache-2.0',
-  npm: 'niuma-ui',
-  github: 'https://github.com/Blair-Shang/niuma-ui',
-  install: 'pnpm add niuma-ui',
+  npm: 'ensis-ui',
+  github: 'https://github.com/Blair-Shang/ensis-ui',
+  install: 'pnpm add ensis-ui',
 }

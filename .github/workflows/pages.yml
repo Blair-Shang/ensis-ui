@@ -36,7 +36,7 @@ jobs:
 
       - name: Build docs site
         env:
-          VITE_BASE: /niuma-ui/
+          VITE_BASE: /ensis-ui/
         run: pnpm build:site
 
       - name: Upload artifact

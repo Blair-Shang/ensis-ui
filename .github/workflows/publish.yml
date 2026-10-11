@@ -100,5 +100,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.meta.outputs.tag }}
-          name: niuma-ui ${{ steps.meta.outputs.version }}
+          name: ensis-ui ${{ steps.meta.outputs.version }}
           body_path: release-notes.md

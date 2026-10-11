@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsTextarea, type RsTextareaExpose } from 'niuma-ui'
+import { RsButton, RsTextarea, type RsTextareaExpose } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

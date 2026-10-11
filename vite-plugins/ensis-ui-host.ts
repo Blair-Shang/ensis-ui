@@ -14,17 +14,17 @@ import { init, parse } from 'es-module-lexer'
 import MagicString from 'magic-string'
 import type { Plugin } from 'vite'
 
-const SPECIFIERS = new Set(['@niuma/ui', 'niuma-ui'])
+const SPECIFIERS = new Set(['@niuma/ui', 'niuma-ui', 'ensis-ui'])
 
-/** NiumaUiHostOptions 为宿主提供 include / exclude / 包根覆盖。 */
-export type NiumaUiHostOptions = {
+/** EnsisUiHostOptions 为宿主提供 include / exclude / 包根覆盖。 */
+export type EnsisUiHostOptions = {
   include?: FilterPattern
   exclude?: FilterPattern
   root?: string
 }
 
-/** NiumaUiBinding 描述主入口一个运行时导出如何落到源码 from。 */
-export type NiumaUiBinding = {
+/** EnsisUiBinding 描述主入口一个运行时导出如何落到源码 from。 */
+export type EnsisUiBinding = {
   from: string
   kind: 'default' | 'named'
   /** named 时源模块里的导出名；缺省等于对外名。 */
@@ -36,15 +36,15 @@ type HostContext = {
   viteRoot: string
   hasSrc: boolean
   useSource: boolean
-  map: Map<string, NiumaUiBinding>
+  map: Map<string, EnsisUiBinding>
   filter: (id: string) => boolean
 }
 
 /**
- * NiumaUiHost 返回一组插件（Vite 会摊平）。
+ * EnsisUiHost 返回一组插件（Vite 会摊平）。
  * serve 改写具名导入到源码并 alias styles。
  */
-export function niumaUiHost(options: NiumaUiHostOptions = {}): Plugin[] {
+export function ensisUiHost(options: EnsisUiHostOptions = {}): Plugin[] {
   const root = options.root ?? resolvePkgRoot()
   const ctx: HostContext = {
     root,
@@ -57,7 +57,7 @@ export function niumaUiHost(options: NiumaUiHostOptions = {}): Plugin[] {
       options.exclude ?? [/\/node_modules\//],
     ),
   }
-  return [niumaUiHostAlias(ctx), niumaUiHostRewrite(ctx)]
+  return [ensisUiHostAlias(ctx), ensisUiHostRewrite(ctx)]
 }
 
 /**
@@ -92,11 +92,11 @@ export function dayjsServeAliases(root: string): { find: RegExp; replacement: st
 }
 
 /**
- * NiumaUiHostAlias 仅在 serve 时补 dayjs ESM 别名；有 src 时再改 styles 并排除整桶预构建。
+ * EnsisUiHostAlias 仅在 serve 时补 dayjs ESM 别名；有 src 时再改 styles 并排除整桶预构建。
  */
-function niumaUiHostAlias(ctx: HostContext): Plugin {
+function ensisUiHostAlias(ctx: HostContext): Plugin {
   return {
-    name: 'niuma-ui-host:alias',
+    name: 'ensis-ui-host:alias',
     apply: 'serve',
     enforce: 'pre',
     config() {
@@ -113,12 +113,14 @@ function niumaUiHostAlias(ctx: HostContext): Plugin {
           ? [
               { find: '@niuma/ui/styles.css', replacement: styles },
               { find: 'niuma-ui/styles.css', replacement: styles },
+              { find: 'ensis-ui/styles.css', replacement: styles },
             ]
           : []),
         ...(existsSync(brandIcons)
           ? [
               { find: '@niuma/ui/brand-icons.css', replacement: brandIcons },
               { find: 'niuma-ui/brand-icons.css', replacement: brandIcons },
+              { find: 'ensis-ui/brand-icons.css', replacement: brandIcons },
             ]
           : []),
         ...dayjsAlias,
@@ -126,9 +128,9 @@ function niumaUiHostAlias(ctx: HostContext): Plugin {
       return {
         resolve: alias.length > 0 ? { alias } : {},
         // 不要把 reka-ui / @lucide/vue 写进 include：
-        // 它们装在 niuma-ui 下，pnpm 宿主（cloud / site）resolve 不到，Vite 会报 Failed to resolve dependency。
+        // 它们装在 ensis-ui 下，pnpm 宿主（cloud / site）resolve 不到，Vite 会报 Failed to resolve dependency。
         optimizeDeps: {
-          exclude: ['@niuma/ui', 'niuma-ui'],
+          exclude: ['@niuma/ui', 'niuma-ui', 'ensis-ui'],
         },
       }
     },
@@ -136,11 +138,11 @@ function niumaUiHostAlias(ctx: HostContext): Plugin {
 }
 
 /**
- * NiumaUiHostRewrite 仅在 serve 把静态具名导入改到源码文件，供 HMR。
+ * EnsisUiHostRewrite 仅在 serve 把静态具名导入改到源码文件，供 HMR。
  */
-function niumaUiHostRewrite(ctx: HostContext): Plugin {
+function ensisUiHostRewrite(ctx: HostContext): Plugin {
   return {
-    name: 'niuma-ui-host:rewrite',
+    name: 'ensis-ui-host:rewrite',
     apply: 'serve',
     enforce: 'pre',
     configResolved(config) {
@@ -150,7 +152,7 @@ function niumaUiHostRewrite(ctx: HostContext): Plugin {
     },
     async transform(code, id) {
       if (!ctx.filter(id)) return null
-      if (!code.includes('@niuma/ui') && !code.includes('niuma-ui')) return null
+      if (!code.includes('@niuma/ui') && !code.includes('niuma-ui') && !code.includes('ensis-ui')) return null
       const rewrite = () =>
         rewriteHostModule(code, id, ctx.map, (from, spec) =>
           resolveTarget(from, spec, ctx.root, ctx.useSource),
@@ -210,7 +212,7 @@ export function scriptBlocks(code: string, id: string): ScriptBlock[] {
 export async function rewriteHostModule(
   code: string,
   id: string,
-  map: Map<string, NiumaUiBinding>,
+  map: Map<string, EnsisUiBinding>,
   targetOf: (from: string, spec: string) => string,
 ): Promise<{ code: string; map: ReturnType<MagicString['generateMap']> } | null> {
   await init
@@ -244,7 +246,7 @@ export async function rewriteHostModule(
 export function rewriteHostStatement(
   stmt: string,
   spec: string,
-  map: Map<string, NiumaUiBinding>,
+  map: Map<string, EnsisUiBinding>,
   targetOf: (from: string) => string,
 ): string | null {
   const parsed = parseStaticImport(stmt)
@@ -256,7 +258,7 @@ export function rewriteHostStatement(
   if (parsed.defaultName) {
     const binding = map.get(parsed.defaultName)
     if (!binding) {
-      throw new Error(`niumaUiHost: 未找到运行时导出 ${parsed.defaultName}，无法改写到发布子路径`)
+      throw new Error(`ensisUiHost: 未找到运行时导出 ${parsed.defaultName}，无法改写到发布子路径`)
     }
     lines.push(emitBinding(keyword, binding.kind, parsed.defaultName, parsed.defaultName, targetOf(binding.from)))
   }
@@ -268,7 +270,7 @@ export function rewriteHostStatement(
     }
     const binding = map.get(part.imported)
     if (!binding) {
-      throw new Error(`niumaUiHost: 未找到运行时导出 ${part.imported}，无法改写到发布子路径`)
+      throw new Error(`ensisUiHost: 未找到运行时导出 ${part.imported}，无法改写到发布子路径`)
     }
     lines.push(emitBinding(keyword, binding.kind, part.imported, part.local, targetOf(binding.from)))
   }
@@ -282,7 +284,7 @@ export function rewriteHostStatement(
 
 function emitBinding(
   keyword: string,
-  kind: NiumaUiBinding['kind'],
+  kind: EnsisUiBinding['kind'],
   imported: string,
   local: string,
   target: string,
@@ -342,11 +344,14 @@ function parseStaticImport(stmt: string): {
 
 function resolvePkgRoot(): string {
   const require = createRequire(import.meta.url)
-  try {
-    return dirname(require.resolve('@niuma/ui/package.json'))
-  } catch {
-    return dirname(require.resolve('niuma-ui/package.json'))
+  for (const name of ['ensis-ui', 'niuma-ui', '@niuma/ui']) {
+    try {
+      return dirname(require.resolve(`${name}/package.json`))
+    } catch {
+      // 下一个旧包名
+    }
   }
+  throw new Error('ensisUiHost: 未找到 ensis-ui 包根')
 }
 
 type Specifier = {
@@ -359,7 +364,7 @@ type Specifier = {
  * EmitLiveReexportIndex 把绑定表收成带 from 的真实 re-export，与 index.d.ts 同形。
  * 禁止输出全量 import + 本地 alias 门面。
  */
-export function emitLiveReexportIndex(map: Map<string, NiumaUiBinding>): string {
+export function emitLiveReexportIndex(map: Map<string, EnsisUiBinding>): string {
   const lines: string[] = []
   for (const [name, binding] of map) {
     let from = binding.from.replace(/\\/g, '/')
@@ -380,8 +385,8 @@ export function emitLiveReexportIndex(map: Map<string, NiumaUiBinding>): string 
  * 认源码 / 发布桶 `export { default as RsX } from './...'`，以及 Rolldown
  * 门面 `import RsX_default from './...'` + `export { RsX_default as RsX }`。
  */
-export function parseRuntimeBindings(source: string): Map<string, NiumaUiBinding> {
-  const map = new Map<string, NiumaUiBinding>()
+export function parseRuntimeBindings(source: string): Map<string, EnsisUiBinding> {
+  const map = new Map<string, EnsisUiBinding>()
   const reexport = /^[ \t]*export\s+(?!type\b)\{([^}]+)\}\s+from\s*['"](\.[^'"]+)['"]/gm
   let match: RegExpExecArray | null
   while ((match = reexport.exec(source)) !== null) {
@@ -396,7 +401,7 @@ export function parseRuntimeBindings(source: string): Map<string, NiumaUiBinding
     }
   }
 
-  const locals = new Map<string, NiumaUiBinding>()
+  const locals = new Map<string, EnsisUiBinding>()
   const imports = /^[ \t]*import\s+(?!type\b)([\s\S]+?)\s+from\s*['"](\.[^'"]+)['"]/gm
   while ((match = imports.exec(source)) !== null) {
     const from = match[2] ?? ''
@@ -440,7 +445,7 @@ function parseSpecifierList(inner: string): Specifier[] {
 function recordImportLocals(
   clause: string,
   from: string,
-  locals: Map<string, NiumaUiBinding>,
+  locals: Map<string, EnsisUiBinding>,
 ): void {
   const trimmed = clause.trim()
   if (!trimmed || trimmed.startsWith('*')) return
@@ -461,19 +466,19 @@ function recordImportLocals(
   }
 }
 
-function loadRuntimeBindings(root: string, useSource: boolean): Map<string, NiumaUiBinding> {
+function loadRuntimeBindings(root: string, useSource: boolean): Map<string, EnsisUiBinding> {
   const srcIndex = join(root, 'src/index.ts')
   const distIndex = join(root, 'dist/index.js')
   const indexPath =
     useSource && existsSync(srcIndex) ? srcIndex : existsSync(distIndex) ? distIndex : srcIndex
   if (!existsSync(indexPath)) {
-    throw new Error(`niumaUiHost: 未找到 ${srcIndex} 或 ${distIndex}`)
+    throw new Error(`ensisUiHost: 未找到 ${srcIndex} 或 ${distIndex}`)
   }
   let map = parseRuntimeBindings(readFileSync(indexPath, 'utf8'))
   if (useSource) map = followSourceBarrels(root, map)
   if (map.size === 0) {
     throw new Error(
-      `niumaUiHost: ${indexPath} 没有解析到运行时导出（需要 src re-export 或 dist 桶 import/export）`,
+      `ensisUiHost: ${indexPath} 没有解析到运行时导出（需要 src re-export 或 dist 桶 import/export）`,
     )
   }
   return map
@@ -486,11 +491,11 @@ function loadRuntimeBindings(root: string, useSource: boolean): Map<string, Nium
  */
 export function followSourceBarrels(
   root: string,
-  map: Map<string, NiumaUiBinding>,
-): Map<string, NiumaUiBinding> {
-  const next = new Map<string, NiumaUiBinding>()
-  const parsed = new Map<string, Map<string, NiumaUiBinding>>()
-  const bindingsIn = (file: string): Map<string, NiumaUiBinding> => {
+  map: Map<string, EnsisUiBinding>,
+): Map<string, EnsisUiBinding> {
+  const next = new Map<string, EnsisUiBinding>()
+  const parsed = new Map<string, Map<string, EnsisUiBinding>>()
+  const bindingsIn = (file: string): Map<string, EnsisUiBinding> => {
     const cached = parsed.get(file)
     if (cached) return cached
     const child = parseRuntimeBindings(readFileSync(file, 'utf8'))

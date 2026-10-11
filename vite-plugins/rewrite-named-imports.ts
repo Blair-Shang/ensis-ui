@@ -1,5 +1,5 @@
 /**
- * @deprecated 请改为 `niuma-ui/vite-plugins/niuma-ui-host`。勿新用。
+ * @deprecated 请改为 `ensis-ui/vite-plugins/ensis-ui-host`。勿新用。
  */
-export { niumaUiHost, type NiumaUiHostOptions } from './niuma-ui-host.js'
-export { niumaUiHost as rewriteNiumaUiNamedImports } from './niuma-ui-host.js'
+export { ensisUiHost, type EnsisUiHostOptions } from './ensis-ui-host.js'
+export { ensisUiHost as rewriteEnsisUiNamedImports } from './ensis-ui-host.js'

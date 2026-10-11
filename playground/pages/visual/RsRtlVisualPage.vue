@@ -11,7 +11,7 @@ import {
   RsTable,
   type RsMenuItems,
   type RsTableColumn,
-} from 'niuma-ui'
+} from 'ensis-ui'
 
 interface Row {
   id: string

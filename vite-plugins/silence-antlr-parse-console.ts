@@ -36,7 +36,7 @@ export function silenceAntlrParseConsole(
       const s = new MagicString(code)
       s.replace(
         ANTLR_LINE_ERROR,
-        '/* niuma-ui: antlr4ng ConsoleErrorListener; diagnostics via Monaco markers */',
+        '/* ensis-ui: antlr4ng ConsoleErrorListener; diagnostics via Monaco markers */',
       )
       return {
         code: s.toString(),

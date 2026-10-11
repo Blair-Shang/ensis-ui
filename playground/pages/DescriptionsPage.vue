@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { RsDescriptions, RsDescriptionsItem, RsTag } from 'niuma-ui'
+import { RsDescriptions, RsDescriptionsItem, RsTag } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage, { type DemoApiRow } from '../components/DemoPage.vue'
 
 const items = [
-  { key: 'name', label: '名称', value: 'niuma-ui' },
+  { key: 'name', label: '名称', value: 'ensis-ui' },
   { key: 'version', label: '版本', value: '1.1.0' },
   { key: 'license', label: '协议', value: 'Apache-2.0' },
   { key: 'author', label: '作者', value: 'Blair Shang', span: 2 },

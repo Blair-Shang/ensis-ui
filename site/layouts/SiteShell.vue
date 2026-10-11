@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onUnmounted, ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import { RsAnchor, type RsAnchorItem } from 'niuma-ui'
+import { RsAnchor, type RsAnchorItem } from 'ensis-ui'
 import { componentDocs } from '../catalog/components'
 import { guideDocs } from '../catalog/guides'
 import SiteFooter from '../components/SiteFooter.vue'

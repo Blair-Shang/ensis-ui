@@ -1,6 +1,6 @@
 # 贡献指南
 
-感谢参与 `niuma-ui` 的贡献。本文说明如何在本仓库中开发、文档化并合入变更。
+感谢参与 `ensis-ui` 的贡献。本文说明如何在本仓库中开发、文档化并合入变更。
 
 请同时阅读 [行为准则](./CODE_OF_CONDUCT.md)。
 
@@ -49,7 +49,7 @@ pnpm test:watch
 
 1. 把变更写进 [CHANGELOG.md](./CHANGELOG.md) 的 `[Unreleased]`，再把它改成 `## [X.Y.Z] - YYYY-MM-DD`。预发布写成 `X.Y.Z-beta.1` 这种带连字符的版本。
 2. 把 `package.json` 的 `version` 改成同一个号。
-3. 合并到 `main`。**Release** 读取 changelog 第一条 `## [x.y.z]`：与 `package.json` 不一致则失败；`vX.Y.Z` 已存在则结束。新版本先跑 `pnpm test` 和 `pnpm build`，再打附注 tag（说明是 `niuma-ui X.Y.Z` 加上该版本 changelog，能在 `git show vX.Y.Z` 里看到）并推送。
+3. 合并到 `main`。**Release** 读取 changelog 第一条 `## [x.y.z]`：与 `package.json` 不一致则失败；`vX.Y.Z` 已存在则结束。新版本先跑 `pnpm test` 和 `pnpm build`，再打附注 tag（说明是 `ensis-ui X.Y.Z` 加上该版本 changelog，能在 `git show vX.Y.Z` 里看到）并推送。
 4. 这次推 tag 用的是 Actions 令牌，不会连带触发别的工作流。Release 随后以 `workflow_dispatch` 启动 **Publish**：跑测试、`prepublishOnly` 构建 `dist/`、`pnpm publish`，并从 CHANGELOG 该版本段落生成 **GitHub Release**。同一提交的文档站由推 `main` 时的 **Deploy Docs** 部署。正式版打 npm dist-tag `latest`，带连字符的预发布打 `next`。
 5. tag 已经在远程、npm 或 Release 说明还没有：Actions → Publish → **Run workflow**，填写 `tag`（如 `v1.1.1`）。只补说明时勾选 `skip_npm`。
 
@@ -60,7 +60,7 @@ pnpm test:watch
 生成方式（避免 CI 报 `EOTP`）：
 
 1. npm → Access Tokens → **Granular Access Token**
-2. 包 `niuma-ui`：**Read and write**
+2. 包 `ensis-ui`：**Read and write**
 3. 勾选 **Bypass two-factor authentication**
 4. 将 token 写入 GitHub Actions Secret `NPM_TOKEN`
 
@@ -117,7 +117,7 @@ Props / 事件 / 插槽 / 导出 / Token / 默认值语义变更须 **MAJOR**，
 
 ## 缺陷与需求
 
-请使用 GitHub Issues 模板。尽量附上 Vue / Vite / `niuma-ui` 版本与最小复现。
+请使用 GitHub Issues 模板。尽量附上 Vue / Vite / `ensis-ui` 版本与最小复现。
 
 ## 安全
 

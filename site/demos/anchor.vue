@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsAnchor, RsButton, type RsAnchorExpose, type RsAnchorItem } from 'niuma-ui'
+import { RsAnchor, RsButton, type RsAnchorExpose, type RsAnchorItem } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

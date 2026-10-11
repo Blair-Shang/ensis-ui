@@ -6,31 +6,31 @@ export const guideDocs: GuideDoc[] = [
     slug: 'introduce',
     title: '介绍',
     titleEn: 'Introduction',
-    description: 'Niuma UI 是面向运维控制台、数据库工作台与桌面工具的 Vue 3 设计系统。',
+    description: 'Ensis UI 是面向运维控制台、数据库工作台与桌面工具的 Vue 3 设计系统。',
     descriptionEn:
-      'Niuma UI is a Vue 3 design system for ops consoles, database workbenches, and desktop tools.',
+      'Ensis UI is a Vue 3 design system for ops consoles, database workbenches, and desktop tools.',
     sections: [
       {
         id: 'overview',
         title: '定位',
         titleEn: 'Positioning',
-        body: 'Niuma UI 提供一致的 Rs* 组件与 --rs-* 设计 Token，底层基于 Reka UI。安装会带上 Monaco、CodeMirror、xterm 等专业工具依赖，适合控制台与桌面工作台。营销站请具名导入，避免把重型编辑器打进首包。',
+        body: 'Ensis UI 提供一致的 Rs* 组件与 --rs-* 设计 Token，底层基于 Reka UI。安装会带上 Monaco、CodeMirror、xterm 等专业工具依赖，适合控制台与桌面工作台。营销站请具名导入，避免把重型编辑器打进首包。',
         bodyEn:
-          'Niuma UI ships consistent Rs* components and --rs-* tokens on top of Reka UI. Install pulls Monaco, CodeMirror, and xterm for workbench routes. Use named imports on marketing sites so heavy editors stay out of the first bundle.',
+          'Ensis UI ships consistent Rs* components and --rs-* tokens on top of Reka UI. Install pulls Monaco, CodeMirror, and xterm for workbench routes. Use named imports on marketing sites so heavy editors stay out of the first bundle.',
       },
       {
         id: 'principles',
         title: '设计原则',
         titleEn: 'Principles',
         bullets: [
-          '公开能力只从 niuma-ui 根入口具名导入，禁止直接依赖 reka-ui。',
+          '公开能力只从 ensis-ui 根入口具名导入，禁止直接依赖 reka-ui。',
           '主题与尺寸走 RsConfigProvider + CSS 变量，业务用品牌层覆盖，不 :deep 改内部结构。',
           '形态（variant）与语义色（tone）正交：variant 管外形，tone 管色相。',
           '重型模块（表格富编辑、Monaco、终端）按需引用，官网与轻量后台应做薄封装。',
           '维护者改组件或加导出前先读 docs/components.md 与 docs/components.en.md（两份清单同步），避免破坏公开面。',
         ],
         bulletsEn: [
-          'Named-import public APIs from the niuma-ui root only. Do not depend on reka-ui.',
+          'Named-import public APIs from the ensis-ui root only. Do not depend on reka-ui.',
           'Theme and size go through RsConfigProvider and CSS variables. Hosts override a brand layer; do not :deep internals.',
           'variant is shape, tone is hue.',
           'Load heavy modules (rich table edit, Monaco, terminal) on demand. Thin-wrap them on marketing sites.',
@@ -69,7 +69,7 @@ export const guideDocs: GuideDoc[] = [
         bodyEn: `Requires Node.js ≥ 20 and Vue ^3.5. Current release is ${siteConfig.version}. Prefer a range such as ${siteConfig.releaseRange}.`,
         code: {
           lang: 'bash',
-          content: 'pnpm add niuma-ui\n# or: npm install niuma-ui / yarn add niuma-ui',
+          content: 'pnpm add ensis-ui\n# or: npm install ensis-ui / yarn add ensis-ui',
         },
       },
       {
@@ -83,7 +83,7 @@ export const guideDocs: GuideDoc[] = [
           lang: 'ts',
           content: [
             "import { createApp } from 'vue'",
-            "import 'niuma-ui/styles.css'",
+            "import 'ensis-ui/styles.css'",
             "import App from './App.vue'",
             '',
             "createApp(App).mount('#app')",
@@ -98,7 +98,7 @@ export const guideDocs: GuideDoc[] = [
           lang: 'vue',
           content: [
             '<script setup lang="ts">',
-            "import { RsConfigProvider, RsButton } from 'niuma-ui'",
+            "import { RsConfigProvider, RsButton } from 'ensis-ui'",
             '</script>',
             '',
             '<template>',
@@ -114,17 +114,17 @@ export const guideDocs: GuideDoc[] = [
         title: '使用约定',
         titleEn: 'Usage',
         bullets: [
-          '业务模块只允许 import { … } from "niuma-ui"。',
+          '业务模块只允许 import { … } from "ensis-ui"。',
           'styles.css 须在业务品牌 CSS 之前或按文档顺序加载。',
           'styles.css 是独立样式，不依赖 Tailwind。',
-          '本地联调可启用 niumaUiHost，仅服务 pnpm dev，不进生产构建。',
+          '本地联调可启用 ensisUiHost，仅服务 pnpm dev，不进生产构建。',
           '不要直接依赖 reka-ui，不要 import *，不要把包名别名到 src/index.ts。',
         ],
         bulletsEn: [
-          'App code may only import { … } from "niuma-ui".',
+          'App code may only import { … } from "ensis-ui".',
           'Load styles.css before (or as documented with) your brand CSS.',
           'styles.css is standalone and does not depend on Tailwind.',
-          'niumaUiHost is local pnpm dev + link only. Production and CI resolve npm dist.',
+          'ensisUiHost is local pnpm dev + link only. Production and CI resolve npm dist.',
           'Do not depend on reka-ui, import *, or alias the package to src/index.ts.',
         ],
       },
@@ -180,7 +180,7 @@ export const guideDocs: GuideDoc[] = [
         code: {
           lang: 'ts',
           content: [
-            "import { applyColorTheme, clearColorTheme, type RsColorTheme } from 'niuma-ui'",
+            "import { applyColorTheme, clearColorTheme, type RsColorTheme } from 'ensis-ui'",
             '',
             'const ink: RsColorTheme = {',
             "  id: 'example.ink',",
@@ -272,9 +272,9 @@ export const guideDocs: GuideDoc[] = [
         id: 'icons',
         title: '内置图标',
         titleEn: 'Built-in icons',
-        body: 'Lucide 线标走 --rs-icon-color。数据源 mark 色是可选子系统：import niuma-ui/brand-icons.css。不引入则为 currentColor。',
+        body: 'Lucide 线标走 --rs-icon-color。数据源 mark 色是可选子系统：import ensis-ui/brand-icons.css。不引入则为 currentColor。',
         bodyEn:
-          'Lucide strokes use --rs-icon-color. Data-source mark colors are optional: import niuma-ui/brand-icons.css. Without it, marks use currentColor.',
+          'Lucide strokes use --rs-icon-color. Data-source mark colors are optional: import ensis-ui/brand-icons.css. Without it, marks use currentColor.',
       },
     ],
   },
@@ -296,7 +296,7 @@ export const guideDocs: GuideDoc[] = [
         code: {
           lang: 'ts',
           content:
-            "import { registerRsLocale, rsLocaleMessageKeys } from 'niuma-ui'\n\nregisterRsLocale('ja-JP', {\n  'select.placeholder': '選択してください',\n  'pagination.summary': '{total, plural, other {# 件}}',\n})\n",
+            "import { registerRsLocale, rsLocaleMessageKeys } from 'ensis-ui'\n\nregisterRsLocale('ja-JP', {\n  'select.placeholder': '選択してください',\n  'pagination.summary': '{total, plural, other {# 件}}',\n})\n",
         },
       },
       {
@@ -338,7 +338,7 @@ export const guideDocs: GuideDoc[] = [
           'Bundlers tree-shake the re-exports in dist/index.js. Do not import * or alias the package to src/index.ts.',
         code: {
           lang: 'ts',
-          content: "import { RsButton, RsDialog } from 'niuma-ui'",
+          content: "import { RsButton, RsDialog } from 'ensis-ui'",
         },
       },
       {
@@ -360,9 +360,9 @@ export const guideDocs: GuideDoc[] = [
         id: 'host',
         title: '本机联调',
         titleEn: 'Local link',
-        body: 'niumaUiHost 只在 pnpm dev + link 时把具名导入改到源码，便于 HMR。vite build / CI 必须解析 npm dist，不要依赖改写插件。',
+        body: 'ensisUiHost 只在 pnpm dev + link 时把具名导入改到源码，便于 HMR。vite build / CI 必须解析 npm dist，不要依赖改写插件。',
         bodyEn:
-          'niumaUiHost rewrites named imports to source only during pnpm dev + link (HMR). vite build and CI must resolve npm dist and must not depend on that plugin.',
+          'ensisUiHost rewrites named imports to source only during pnpm dev + link (HMR). vite build and CI must resolve npm dist and must not depend on that plugin.',
       },
     ],
   },

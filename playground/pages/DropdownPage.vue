@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsDropdown, type RsDropdownItem, type RsDropdownItemGroup } from 'niuma-ui'
+import { RsDropdown, type RsDropdownItem, type RsDropdownItemGroup } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

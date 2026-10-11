@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsInput, RsPopover, type RsPopoverExpose, type RsPopoverWidth } from 'niuma-ui'
+import { RsButton, RsInput, RsPopover, type RsPopoverExpose, type RsPopoverWidth } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

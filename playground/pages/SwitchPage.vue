@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsSwitch } from 'niuma-ui'
+import { RsSwitch } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage, { type DemoApiRow } from '../components/DemoPage.vue'
 

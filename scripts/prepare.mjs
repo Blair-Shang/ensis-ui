@@ -16,7 +16,7 @@ if (!existsSync(resolve(root, 'src/index.ts'))) {
 if (process.env.SKIP_NIUMA_UI_PREPARE === '1') {
   process.exit(0)
 }
-if (existsSync(resolve(root, 'dist/vite-plugins/niuma-ui-host.js'))) {
+if (existsSync(resolve(root, 'dist/vite-plugins/ensis-ui-host.js'))) {
   process.exit(0)
 }
 

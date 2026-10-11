@@ -380,9 +380,9 @@ export const basicComponents: ComponentDoc[] = [
     faq: [
       {
         q: '业务自己的图标怎么给 RsIcon 用？',
-        a: '在应用启动时 registerRsIcon("my-product", MyMark)。名字用 kebab-case。组件接收 size、strokeWidth、color，颜色默认 currentColor。不要把 SVG 放进 niuma-ui 的 src/icons。内置品牌名会抛错；与 Lucide 重名时仍显示内置图形。',
+        a: '在应用启动时 registerRsIcon("my-product", MyMark)。名字用 kebab-case。组件接收 size、strokeWidth、color，颜色默认 currentColor。不要把 SVG 放进 ensis-ui 的 src/icons。内置品牌名会抛错；与 Lucide 重名时仍显示内置图形。',
         qEn: 'How does a product icon get into RsIcon?',
-        aEn: 'Call registerRsIcon("my-product", MyMark) at startup. The name is kebab-case. The component receives size, strokeWidth, and color (default currentColor). Do not add SVG files under niuma-ui src/icons. Built-in brand names throw. A Lucide name still renders the built-in glyph.',
+        aEn: 'Call registerRsIcon("my-product", MyMark) at startup. The name is kebab-case. The component receives size, strokeWidth, and color (default currentColor). Do not add SVG files under ensis-ui src/icons. Built-in brand names throw. A Lucide name still renders the built-in glyph.',
       },
       {
         q: '找不到图标名怎么办？',
@@ -392,9 +392,9 @@ export const basicComponents: ComponentDoc[] = [
       },
       {
         q: '品牌色为什么是灰的？',
-        a: '需要引入 niuma-ui/brand-icons.css。不引入则走 currentColor。不要在业务里写死十六进制。',
+        a: '需要引入 ensis-ui/brand-icons.css。不引入则走 currentColor。不要在业务里写死十六进制。',
         qEn: 'Why are brand marks gray?',
-        aEn: 'Import niuma-ui/brand-icons.css. Without it, marks use currentColor. Do not hard-code hex in product CSS.',
+        aEn: 'Import ensis-ui/brand-icons.css. Without it, marks use currentColor. Do not hard-code hex in product CSS.',
       },
       {
         q: '要不要给每个图标加 label？',

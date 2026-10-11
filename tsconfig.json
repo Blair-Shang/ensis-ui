@@ -11,7 +11,7 @@
     "jsx": "preserve",
     "types": ["vitest/globals", "node", "vite/client"],
     "paths": {
-      "niuma-ui": ["./src/index.ts"]
+      "ensis-ui": ["./src/index.ts"]
     }
   },
   "include": [

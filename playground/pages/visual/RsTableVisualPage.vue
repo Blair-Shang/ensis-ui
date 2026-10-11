@@ -4,7 +4,7 @@
  * 非演示页，不进入侧栏目录。
  */
 import { onMounted } from 'vue'
-import { RsTable, useRsConfig, type RsTableColumn } from 'niuma-ui'
+import { RsTable, useRsConfig, type RsTableColumn } from 'ensis-ui'
 
 interface Row {
   id: string

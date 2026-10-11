@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RsButton, RsCard } from 'niuma-ui'
-import type { RsCardSize, RsCardVariant, RsRadius } from 'niuma-ui'
+import { RsButton, RsCard } from 'ensis-ui'
+import type { RsCardSize, RsCardVariant, RsRadius } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

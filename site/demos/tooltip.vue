@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsButton, RsTooltip, RsTooltipProvider } from 'niuma-ui'
+import { RsButton, RsTooltip, RsTooltipProvider } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

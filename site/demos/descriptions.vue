@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsDescriptions, RsDescriptionsItem, RsTag } from 'niuma-ui'
+import { RsButton, RsDescriptions, RsDescriptionsItem, RsTag } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
@@ -70,13 +70,13 @@ const { copy } = useSiteDemo({
 })
 
 const basicItems = computed(() => [
-  { key: 'name', label: copy.value.name, value: 'niuma-ui' },
+  { key: 'name', label: copy.value.name, value: 'ensis-ui' },
   { key: 'version', label: copy.value.version, value: '2.0.5' },
   { key: 'license', label: copy.value.license, value: 'Apache-2.0' },
 ])
 
 const spanItems = computed(() => [
-  { key: 'name', label: copy.value.name, value: 'niuma-ui' },
+  { key: 'name', label: copy.value.name, value: 'ensis-ui' },
   { key: 'region', label: copy.value.region, value: 'ap-east-1', span: 2 },
   { key: 'notes', label: copy.value.notes, value: copy.value.notesValue, span: 3 },
 ])

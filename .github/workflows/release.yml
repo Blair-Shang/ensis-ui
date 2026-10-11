@@ -88,7 +88,7 @@ jobs:
             found { print }
           ' CHANGELOG.md > release-notes.md
           {
-            printf 'niuma-ui %s\n\n' "${VERSION}"
+            printf 'ensis-ui %s\n\n' "${VERSION}"
             cat release-notes.md
           } > tag-message.md
           git config user.name "github-actions[bot]"

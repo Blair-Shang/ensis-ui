@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsTable, type RsTableApi, type RsTableColumn } from 'niuma-ui'
+import { RsButton, RsTable, type RsTableApi, type RsTableColumn } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

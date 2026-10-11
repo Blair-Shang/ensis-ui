@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { RsButton, RsTerminal, type RsTerminalExpose } from 'niuma-ui'
+import { RsButton, RsTerminal, type RsTerminalExpose } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
@@ -175,7 +175,7 @@ async function copyMethod(): Promise<void> {
 let loadingTimer: ReturnType<typeof setTimeout> | undefined
 
 onMounted(() => {
-  basicRef.value?.write('\x1b[1;36mniuma-ui\x1b[0m terminal\r\n$ ')
+  basicRef.value?.write('\x1b[1;36mensis-ui\x1b[0m terminal\r\n$ ')
   readonlyRef.value?.write('build ok\r\nlast line is read only\r\n')
   searchRef.value?.write('alpha\r\nbeta\r\nalpha again\r\n$ ')
   menuRef.value?.write('select this word, then right-click\r\n$ ')

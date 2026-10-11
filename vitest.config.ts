@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      'niuma-ui/styles.css': fileURLToPath(new URL('./src/styles/index.css', import.meta.url)),
-      'niuma-ui/brand-icons.css': fileURLToPath(
+      'ensis-ui/styles.css': fileURLToPath(new URL('./src/styles/index.css', import.meta.url)),
+      'ensis-ui/brand-icons.css': fileURLToPath(
         new URL('./src/icons/style/brand-icon-tokens.css', import.meta.url),
       ),
-      'niuma-ui': fileURLToPath(new URL('./src', import.meta.url)),
+      'ensis-ui': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   test: {

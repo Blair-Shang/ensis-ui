@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
-import { RsButton, RsDialog, RsInput, type RsDialogCloseReason, type RsDialogExpose } from 'niuma-ui'
+import { RsButton, RsDialog, RsInput, type RsDialogCloseReason, type RsDialogExpose } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

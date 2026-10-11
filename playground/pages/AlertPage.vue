@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsAlert, RsButton, RsIcon, type RsAlertExpose } from 'niuma-ui'
+import { RsAlert, RsButton, RsIcon, type RsAlertExpose } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

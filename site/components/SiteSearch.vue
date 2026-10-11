@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { RsIcon, RsInput } from 'niuma-ui'
+import { RsIcon, RsInput } from 'ensis-ui'
 import { searchDocs, type SiteSearchHit } from '../composables/doc-search'
 import { useSiteI18n } from '../composables/use-site-i18n'
 

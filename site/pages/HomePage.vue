@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { RsButton, RsIcon } from 'niuma-ui'
+import { RsButton, RsIcon } from 'ensis-ui'
 import { componentDocs } from '../catalog/components'
 import type { ComponentGroup } from '../catalog/types'
 import HomeShowcase from '../components/HomeShowcase.vue'

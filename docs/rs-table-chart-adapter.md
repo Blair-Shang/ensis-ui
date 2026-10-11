@@ -10,7 +10,7 @@ English: advanced Chinese note. The library does **not** bundle echarts. Public 
 import {
   createChartSeriesTableFeature,
   mapRsTableSeriesToEChartsOption,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import * as echarts from 'echarts' // 宿主依赖
 
 let chart: echarts.ECharts | null = null

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import { RsButton, useRsConfig } from 'niuma-ui'
+import { RsButton, useRsConfig } from 'ensis-ui'
 import { playgroundRoutes } from '../routes'
 
 const { t } = useRsConfig()
 
 const featured = computed(() => playgroundRoutes.filter((route) => route.featured))
 
-const docsUrl = 'https://blair-shang.github.io/niuma-ui/'
+const docsUrl = 'https://blair-shang.github.io/ensis-ui/'
 </script>
 
 <template>

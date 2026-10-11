@@ -2,12 +2,12 @@
 
 [中文](./README.md)
 
-`site/` is the **only public usage guide** for niuma-ui. International readers should see when to use a component, how to write it, and where events land. Write decisions. Do not copy another product’s pages.
+`site/` is the **only public usage guide** for ensis-ui. International readers should see when to use a component, how to write it, and where events land. Write decisions. Do not copy another product’s pages.
 
 | Entry | URL |
 |-------|-----|
 | Local | `pnpm dev:site` → http://127.0.0.1:5181 |
-| Production | https://blair-shang.github.io/niuma-ui/ |
+| Production | https://blair-shang.github.io/ensis-ui/ |
 | Routes | Hash: `#/components/{slug}`, `#/guide/{slug}` |
 
 `playground/` is internal smoke and visual regression (`:5180`). It is not usage documentation. The architecture contract stays in [docs/components.en.md](../docs/components.en.md).
@@ -22,7 +22,7 @@
 
 `slug` = folder name = route. Groups exist only in the catalog: `basic` / `form` / `nav` / `feedback` / `data` / `editor`.
 
-Demos and docs must **not** `import … from 'reka-ui'`. Import from `niuma-ui` only.
+Demos and docs must **not** `import … from 'reka-ui'`. Import from `ensis-ui` only.
 
 ## Catalog (complete the API)
 
@@ -76,7 +76,7 @@ Do not:
 
 Full examples: `demos/button.vue` / `icon.vue` / `link.vue`.
 
-1. **Locale** — Site chrome uses **vue-i18n** (`site/locales/{locale}/` split into nav / home / doc, `t('doc.showCode')` / `chrome`). The locale stays in sync with `RsConfigProvider` via `setSiteLocale` and is stored in `localStorage`. Catalog paired fields still use `pickSitePair` (non-Chinese falls back to English). Preview labels use `useSiteDemo({ 'zh-CN', 'en-US', … })`. Do **not** write `isEn`. To add a language: copy a locale folder + `SITE_LOCALES` + a demo table block; missing demo packs fall back to `en-US`. vue-i18n is docs-site only — it is not part of the niuma-ui package.
+1. **Locale** — Site chrome uses **vue-i18n** (`site/locales/{locale}/` split into nav / home / doc, `t('doc.showCode')` / `chrome`). The locale stays in sync with `RsConfigProvider` via `setSiteLocale` and is stored in `localStorage`. Catalog paired fields still use `pickSitePair` (non-Chinese falls back to English). Preview labels use `useSiteDemo({ 'zh-CN', 'en-US', … })`. Do **not** write `isEn`. To add a language: copy a locale folder + `SITE_LOCALES` + a demo table block; missing demo packs fall back to `en-US`. vue-i18n is docs-site only — it is not part of the ensis-ui package.
 1b. **Theme** — color uses `--rs-*`. Dark islands use `data-rs-theme`. Read the current light/dark with `useSiteI18n().resolvedTheme` (same path as the header `setTheme`). Do not hard-code hex.
 2. **Copyable code** — `code` is an English snippet that matches the preview. Do not ship Chinese-only examples.
 3. **Usage, not a prop gallery** — one decision per block (shape, disabled, composition). Color uses tokens. Dark surfaces use `data-rs-theme`. Do not hard-code hex.

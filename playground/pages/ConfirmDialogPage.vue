@@ -7,7 +7,7 @@ import {
   rsConfirm,
   type RsDialogWidth,
   type RsFeedbackTone,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

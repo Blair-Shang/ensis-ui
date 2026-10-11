@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onUnmounted, ref, watch } from 'vue'
-import { RsButton, RsInput, RsTree } from 'niuma-ui'
-import type { RsTreeInstance, RsTreeNode } from 'niuma-ui'
+import { RsButton, RsInput, RsTree } from 'ensis-ui'
+import type { RsTreeInstance, RsTreeNode } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

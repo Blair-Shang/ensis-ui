@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsButton, RsMonacoEditor } from 'niuma-ui'
-import type { MonacoLanguage, RsMonacoEditorInstance, RsMonacoEditorTheme } from 'niuma-ui'
+import { RsButton, RsMonacoEditor } from 'ensis-ui'
+import type { MonacoLanguage, RsMonacoEditorInstance, RsMonacoEditorTheme } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

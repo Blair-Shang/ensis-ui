@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useRsConfig } from 'niuma-ui'
+import { useRsConfig } from 'ensis-ui'
 import { getPlaygroundRoute } from '../routes'
 
 export interface DemoApiRow {

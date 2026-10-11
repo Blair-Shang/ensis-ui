@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsInputNumber, type RsInputNumberExpose } from 'niuma-ui'
+import { RsButton, RsInputNumber, type RsInputNumberExpose } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

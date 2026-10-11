@@ -9,14 +9,14 @@ import {
   type RsLogExpose,
   type RsLogLevel,
   type RsLogLine,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage, { type DemoApiRow } from '../components/DemoPage.vue'
 
 const typed: RsLogLine[] = [
   { time: '12:00:01', level: 'info', text: 'sync workspace sources' },
   { time: '12:00:02', level: 'debug', text: 'resolve Maven reactor order' },
-  { time: '12:00:03', level: 'success', text: 'build ok: niuma-ui' },
+  { time: '12:00:03', level: 'success', text: 'build ok: ensis-ui' },
   { time: '12:00:04', level: 'warn', text: 'skip tests (-DskipTests)' },
   { time: '12:00:05', level: 'error', text: 'ftp_push failed: connection refused' },
   { time: '12:00:06', level: 'fatal', text: 'panic: workspace missing' },

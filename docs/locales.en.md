@@ -5,8 +5,8 @@ This package ships **zh-CN** and **en-US** only. Other languages are registered 
 ## Register
 
 ```ts
-import { registerRsLocale } from 'niuma-ui'
-import { rsLocaleMessageKeys } from 'niuma-ui'
+import { registerRsLocale } from 'ensis-ui'
+import { rsLocaleMessageKeys } from 'ensis-ui'
 
 registerRsLocale(
   'ja-JP',

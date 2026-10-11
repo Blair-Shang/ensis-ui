@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsBadge, RsButton, useRsConfig } from 'niuma-ui'
+import { RsBadge, RsButton, useRsConfig } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 
@@ -15,7 +15,7 @@ const brandLabel = computed(() =>
 // 相对路径拆开拼接，避免依赖扫描把示例 import 当真实模块
 const integrationExample = [
   '// main.ts — 顺序：先公共，后业务',
-  "import 'niuma-ui/styles.css'",
+  "import 'ensis-ui/styles.css'",
   'import ' + "'./" + "theme/brand.css'",
   '',
   '// theme/brand.css',

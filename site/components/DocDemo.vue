@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsCodeBlock } from 'niuma-ui'
+import { RsButton, RsCodeBlock } from 'ensis-ui'
 import { useSiteI18n } from '../composables/use-site-i18n'
 
 const props = defineProps<{

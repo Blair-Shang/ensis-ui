@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsButton, RsToaster, useRsToast } from 'niuma-ui'
+import { RsButton, RsToaster, useRsToast } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
@@ -239,7 +239,7 @@ const promiseCode = `toast.promise(save(), {
 })`
 
 const dismissCode = `import { onUnmounted } from 'vue'
-import { useRsToast } from 'niuma-ui'
+import { useRsToast } from 'ensis-ui'
 
 const toast = useRsToast()
 const stickyId = toast.info({ title: 'Upload paused', duration: 0 })

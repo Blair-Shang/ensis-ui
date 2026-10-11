@@ -2,12 +2,12 @@
 
 [English](./README.en.md)
 
-`site/` 是 niuma-ui **唯一对外用法说明**。国际使用者应能看懂何时用、怎么写、事件落在哪。写决策，不抄别家页面。
+`site/` 是 ensis-ui **唯一对外用法说明**。国际使用者应能看懂何时用、怎么写、事件落在哪。写决策，不抄别家页面。
 
 | 入口 | 地址 |
 |------|------|
 | 本地 | `pnpm dev:site` → http://127.0.0.1:5181 |
-| 官网 | https://blair-shang.github.io/niuma-ui/ |
+| 官网 | https://blair-shang.github.io/ensis-ui/ |
 | 路由 | Hash：`#/components/{slug}`、`#/guide/{slug}` |
 
 `playground/` 只做内部冒烟与像素回归（`:5180`），禁止当用法说明。架构契约仍在 [docs/components.md](../docs/components.md)。
@@ -22,7 +22,7 @@
 
 `slug` = 组件目录名 = 路由。分组只改 catalog：`basic` / `form` / `nav` / `feedback` / `data` / `editor`。
 
-演示与文档**禁止** `import … from 'reka-ui'`，只从 `niuma-ui` 导入。
+演示与文档**禁止** `import … from 'reka-ui'`，只从 `ensis-ui` 导入。
 
 ## Catalog（API 必须写全）
 
@@ -76,7 +76,7 @@
 
 完整示例：`demos/button.vue` / `icon.vue` / `link.vue`。
 
-1. **国际化**：站点壳层走 **vue-i18n**（`site/locales/{locale}/` 按 nav / home / doc 拆文件，`t('doc.showCode')` / `chrome`）。语言与 `RsConfigProvider.locale` 同步（`setSiteLocale`），并写入 `localStorage`。catalog 成对字段仍用 `pickSitePair`（非中文回退英文）。演示预览用 `useSiteDemo({ 'zh-CN', 'en-US', … })`。**禁止** `isEn`。加语言：复制一份 locale 目录 + `SITE_LOCALES` + 演示字典；未补演示回退 `en-US`。vue-i18n 只在文档站，不进 niuma-ui 包。
+1. **国际化**：站点壳层走 **vue-i18n**（`site/locales/{locale}/` 按 nav / home / doc 拆文件，`t('doc.showCode')` / `chrome`）。语言与 `RsConfigProvider.locale` 同步（`setSiteLocale`），并写入 `localStorage`。catalog 成对字段仍用 `pickSitePair`（非中文回退英文）。演示预览用 `useSiteDemo({ 'zh-CN', 'en-US', … })`。**禁止** `isEn`。加语言：复制一份 locale 目录 + `SITE_LOCALES` + 演示字典；未补演示回退 `en-US`。vue-i18n 只在文档站，不进 ensis-ui 包。
 1b. **主题**：颜色走 `--rs-*`；深色岛用 `data-rs-theme`。要读当前明暗用 `useSiteI18n().resolvedTheme`（与顶栏 `setTheme` 同一条），不要写死 hex。
 2. **可复制代码**：`code` 用英文示例，与预览同一套 API，不要只展示中文 JSX 注释。
 3. **讲用法，不展览 props**：每段一个决策（形态、禁用、组合）。颜色走 token；深色底用 `data-rs-theme`，不要写死 hex。

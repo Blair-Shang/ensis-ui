@@ -250,8 +250,8 @@ function assertPublishedSurface() {
     'dist/index.js',
     'dist/index.d.ts',
     'dist/styles.css',
-    'dist/vite-plugins/niuma-ui-host.js',
-    'dist/vite-plugins/niuma-ui-host.d.ts',
+    'dist/vite-plugins/ensis-ui-host.js',
+    'dist/vite-plugins/ensis-ui-host.d.ts',
     'dist/vite-plugins/rewrite-named-imports.js',
     'dist/vite-plugins/rewrite-named-imports.d.ts',
     'dist/vite-plugins/monaco-zh-nls.js',
@@ -309,7 +309,7 @@ function assertPublishedSurface() {
  */
 async function rewriteLiveReexportIndex() {
   const indexPath = resolve(distDir, 'index.js')
-  const pluginUrl = pathToFileURL(resolve(distDir, 'vite-plugins/niuma-ui-host.js')).href
+  const pluginUrl = pathToFileURL(resolve(distDir, 'vite-plugins/ensis-ui-host.js')).href
   const { parseRuntimeBindings, emitLiveReexportIndex } = await import(pluginUrl)
   const map = parseRuntimeBindings(readFileSync(indexPath, utf8))
   if (map.size === 0) {

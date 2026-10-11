@@ -4,7 +4,7 @@
  * 非演示页，不进入侧栏目录。
  */
 import { onMounted } from 'vue'
-import { RsLog, useRsConfig } from 'niuma-ui'
+import { RsLog, useRsConfig } from 'ensis-ui'
 
 const wrapLines = [
   '[2026/9/10 17:02:58] 预同步 Git（2/43）：flux-collaboration-adapterexpress  pull origin release/V9.0.0-P08-03 --ff-only',

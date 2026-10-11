@@ -9,7 +9,7 @@ import {
   type RsTableColumn,
   type RsTableRowDropPosition,
   type RsTableSortState,
-} from 'niuma-ui'
+} from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 

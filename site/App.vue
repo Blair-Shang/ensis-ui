@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RsConfigProvider, RsLoadingBar, RsToaster, RsTooltipProvider } from 'niuma-ui'
+import { RsConfigProvider, RsLoadingBar, RsToaster, RsTooltipProvider } from 'ensis-ui'
 import { readInitialSiteLocale } from './i18n'
 import SiteShell from './layouts/SiteShell.vue'
 

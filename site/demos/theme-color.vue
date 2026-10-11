@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref } from 'vue'
-import { applyColorTheme, clearColorTheme, RsButton, RsInput, type RsColorTheme } from 'niuma-ui'
+import { applyColorTheme, clearColorTheme, RsButton, RsInput, type RsColorTheme } from 'ensis-ui'
 import { useSiteI18n } from '../composables/use-site-i18n'
 
 const { pair } = useSiteI18n()

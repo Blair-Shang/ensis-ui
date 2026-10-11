@@ -1,6 +1,6 @@
 {
-  "name": "niuma-ui",
-  "version": "2.1.8",
+  "name": "ensis-ui",
+  "version": "3.0.0",
   "license": "Apache-2.0",
   "type": "module",
   "description": "Vue 3 workbench design system — Rs* components, --rs-* tokens, optional Monaco / CodeMirror / xterm",
@@ -11,16 +11,16 @@
     "components",
     "design-system",
     "workbench",
-    "niuma"
+    "ensis"
   ],
   "author": "Blair-Shang",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blair-Shang/niuma-ui.git"
+    "url": "git+https://github.com/Blair-Shang/ensis-ui.git"
   },
-  "homepage": "https://blair-shang.github.io/niuma-ui/",
+  "homepage": "https://blair-shang.github.io/ensis-ui/",
   "bugs": {
-    "url": "https://github.com/Blair-Shang/niuma-ui/issues"
+    "url": "https://github.com/Blair-Shang/ensis-ui/issues"
   },
   "publishConfig": {
     "access": "public",
@@ -48,10 +48,10 @@
       "import": "./dist/vite-plugins/silence-antlr-parse-console.js",
       "default": "./dist/vite-plugins/silence-antlr-parse-console.js"
     },
-    "./vite-plugins/niuma-ui-host": {
-      "types": "./dist/vite-plugins/niuma-ui-host.d.ts",
-      "import": "./dist/vite-plugins/niuma-ui-host.js",
-      "default": "./dist/vite-plugins/niuma-ui-host.js"
+    "./vite-plugins/ensis-ui-host": {
+      "types": "./dist/vite-plugins/ensis-ui-host.d.ts",
+      "import": "./dist/vite-plugins/ensis-ui-host.js",
+      "default": "./dist/vite-plugins/ensis-ui-host.js"
     },
     "./vite-plugins/rewrite-named-imports": {
       "types": "./dist/vite-plugins/rewrite-named-imports.d.ts",

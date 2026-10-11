@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsDynamicTags, type RsDynamicTagsRejectReason } from 'niuma-ui'
+import { RsDynamicTags, type RsDynamicTagsRejectReason } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage, { type DemoApiRow } from '../components/DemoPage.vue'
 

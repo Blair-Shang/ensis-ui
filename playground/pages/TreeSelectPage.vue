@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsTreeSelect, type RsTreeNode } from 'niuma-ui'
+import { RsTreeSelect, type RsTreeNode } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage from '../components/DemoPage.vue'
 

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsLog, type RsLogExpose, type RsLogLine } from 'niuma-ui'
+import { RsButton, RsLog, type RsLogExpose, type RsLogLine } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
 const structured: RsLogLine[] = [
   { id: '1', time: '2026-09-22T04:00:01Z', level: 'info', text: 'sync workspace sources' },
-  { id: '2', time: '2026-09-22T04:00:03Z', level: 'success', text: 'build ok: niuma-ui' },
+  { id: '2', time: '2026-09-22T04:00:03Z', level: 'success', text: 'build ok: ensis-ui' },
   { id: '3', time: '2026-09-22T04:00:04Z', level: 'warn', text: 'skip tests' },
   { id: '4', time: '2026-09-22T04:00:05Z', level: 'error', text: 'ftp_push failed: connection refused' },
 ]

@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for contributing to `niuma-ui`. This page covers how to develop, document, and land changes in this repository.
+Thank you for contributing to `ensis-ui`. This page covers how to develop, document, and land changes in this repository.
 
 Also read the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
@@ -49,7 +49,7 @@ Use your own git identity. Do not commit as Cursor or another bot account.
 
 1. Move `[Unreleased]` notes in [CHANGELOG.md](./CHANGELOG.md) under `## [X.Y.Z] - YYYY-MM-DD`. Prereleases use a hyphenated version such as `X.Y.Z-beta.1`.
 2. Set `package.json` `version` to that same number.
-3. Merge to `main`. **Release** reads the first `## [x.y.z]` in the changelog. It fails when that number differs from `package.json`, and it stops when `vX.Y.Z` already exists. For a new version it runs `pnpm test` and `pnpm build`, then creates an annotated tag (message `niuma-ui X.Y.Z` plus that changelog section, visible in `git show vX.Y.Z`) and pushes it.
+3. Merge to `main`. **Release** reads the first `## [x.y.z]` in the changelog. It fails when that number differs from `package.json`, and it stops when `vX.Y.Z` already exists. For a new version it runs `pnpm test` and `pnpm build`, then creates an annotated tag (message `ensis-ui X.Y.Z` plus that changelog section, visible in `git show vX.Y.Z`) and pushes it.
 4. That tag push uses the Actions token, so it does not start other workflows. Release then starts **Publish** with `workflow_dispatch`: tests, `prepublishOnly` build of `dist/`, `pnpm publish`, and a **GitHub Release** from that CHANGELOG section. **Deploy Docs** publishes the docs site for the same commit when `main` is pushed. Stable versions use the npm dist-tag `latest`; hyphenated prereleases use `next`.
 5. When the tag is already on the remote but npm or the Release notes are missing: Actions → Publish → **Run workflow**, set `tag` (for example `v1.1.1`). Check `skip_npm` when only the notes need filling in.
 
@@ -60,7 +60,7 @@ The repository needs a Secret named `NPM_TOKEN`.
 Create it so CI does not fail with `EOTP`:
 
 1. npm → Access Tokens → **Granular Access Token**
-2. Package `niuma-ui`: **Read and write**
+2. Package `ensis-ui`: **Read and write**
 3. Enable **Bypass two-factor authentication**
 4. Store the token as GitHub Actions Secret `NPM_TOKEN`
 
@@ -115,7 +115,7 @@ Props / events / slots / exports / tokens / default-value semantics need a **MAJ
 
 ## Bugs and requests
 
-Use the GitHub Issue templates. Include Vue / Vite / `niuma-ui` versions and a minimal reproduction.
+Use the GitHub Issue templates. Include Vue / Vite / `ensis-ui` versions and a minimal reproduction.
 
 ## Security
 

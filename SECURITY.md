@@ -11,7 +11,7 @@
 
 **Do not** report security issues in public GitHub Issues.
 
-1. Prefer a private [GitHub Security Advisory](https://github.com/Blair-Shang/niuma-ui/security/advisories/new) if Advisories are enabled.
+1. Prefer a private [GitHub Security Advisory](https://github.com/Blair-Shang/ensis-ui/security/advisories/new) if Advisories are enabled.
 2. Otherwise contact a repository maintainer privately.
 
 Please include:
@@ -38,7 +38,7 @@ We aim to acknowledge reports within 7 days and to ship a fix or mitigation as s
 
 请**不要**通过公开 Issue 报告安全漏洞。
 
-1. 优先使用仓库的 [GitHub Security Advisories](https://github.com/Blair-Shang/niuma-ui/security/advisories/new)（若已开启）。
+1. 优先使用仓库的 [GitHub Security Advisories](https://github.com/Blair-Shang/ensis-ui/security/advisories/new)（若已开启）。
 2. 否则请私下联系仓库维护者。
 
 报告请尽量包含：受影响的包版本 / git tag、影响说明、复现步骤或概念验证、修复建议（可选）。

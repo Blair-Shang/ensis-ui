@@ -1,16 +1,16 @@
 # 组件规范
 
-本文是 `niuma-ui` 的**架构契约**。改组件、加导出、动 Token 之前先对照这里。违反下列红线即破坏架构，须 MAJOR 或先收回。
+本文是 `ensis-ui` 的**架构契约**。改组件、加导出、动 Token 之前先对照这里。违反下列红线即破坏架构，须 MAJOR 或先收回。
 
 English: [components.en.md](./components.en.md)。两份清单必须同步更新。接入：[consumers.md](./consumers.md) / [consumers.en.md](./consumers.en.md)。贡献：[CONTRIBUTING.md](../CONTRIBUTING.md) / [CONTRIBUTING.en.md](../CONTRIBUTING.en.md)。
 
 稳定导入只允许包根：
 
 ```ts
-import { RsButton, RsConfigProvider } from 'niuma-ui'
+import { RsButton, RsConfigProvider } from 'ensis-ui'
 ```
 
-**禁止** `import … from 'reka-ui'`，禁止未文档化的深路径（`niuma-ui/src/…`、内部 `*-utils` 文件）。
+**禁止** `import … from 'reka-ui'`，禁止未文档化的深路径（`ensis-ui/src/…`、内部 `*-utils` 文件）。
 
 ---
 
@@ -149,7 +149,7 @@ dist/           构建产物（gitignore，npm files 发布）
 | `files` | 只 `dist`、`LICENSE`、`NOTICE`、`README*.md`、`CHANGELOG.md` |
 | 禁止 | `exports["./*"]`；把 `src/`、`docs/`、`site/` 写进 `files` |
 
-消费方只 `import { RsButton } from 'niuma-ui'` 与 `import 'niuma-ui/styles.css'`。深路径（`niuma-ui/src/…`、内部 `*-utils`）无 SemVer。
+消费方只 `import { RsButton } from 'ensis-ui'` 与 `import 'ensis-ui/styles.css'`。深路径（`ensis-ui/src/…`、内部 `*-utils`）无 SemVer。
 
 ---
 
@@ -190,7 +190,7 @@ dist/           构建产物（gitignore，npm files 发布）
 
 文字只认 `--rs-text-primary` / `--rs-text-secondary` / `--rs-text-tertiary` / `--rs-text-disabled` / `--rs-text-inverse` / `--rs-text-link`。`--rs-text` / `--rs-muted` / `--rs-placeholder` 只是别名，新覆盖不要写它们。
 
-Lucide 线标走 `--rs-icon-color`。数据源品牌 mark 色是可选子系统：`import 'niuma-ui/brand-icons.css'`（`--rs-icon-{name}-accent`）。不引入则 mark 为 `currentColor`。
+Lucide 线标走 `--rs-icon-color`。数据源品牌 mark 色是可选子系统：`import 'ensis-ui/brand-icons.css'`（`--rs-icon-{name}-accent`）。不引入则 mark 为 `currentColor`。
 
 高对比：`forced-colors: active` 时语义 token 映射到 `Canvas` / `CanvasText` / `Highlight` 等系统色，组件不必各写一套。
 
@@ -480,7 +480,7 @@ Tooltip / Popover / Dropdown / Dialog / Drawer / ContextMenu / Select 面板：
 
 1. 新组件在 `site/catalog/components/` 登记介绍、何时使用、API、Token、FAQ。
 2. 可复制示例在 `site/demos/{slug}.vue`，用 `DocDemo`。
-3. 本地 `pnpm dev:site` → http://127.0.0.1:5181 ；`pnpm build:site` 部署 GitHub Pages（https://blair-shang.github.io/niuma-ui/）。
+3. 本地 `pnpm dev:site` → http://127.0.0.1:5181 ；`pnpm build:site` 部署 GitHub Pages（https://blair-shang.github.io/ensis-ui/）。
 
 `playground/` 是维护者内部测试台，**不是**第二份官网：
 

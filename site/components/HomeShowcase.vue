@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsAvatar, RsBadge, RsButton, RsIcon, RsInput, RsSwitch, RsTag } from 'niuma-ui'
+import { RsAvatar, RsBadge, RsButton, RsIcon, RsInput, RsSwitch, RsTag } from 'ensis-ui'
 
 const query = ref('')
 const notify = ref(true)

@@ -1,15 +1,15 @@
 # Consumer guide
 
-How to integrate `niuma-ui` into a host app (desktop shell, admin console, or marketing site). Read the root [README.md](../README.md) first. Architecture and catalog: [components.en.md](./components.en.md). Chinese: [consumers.md](./consumers.md).
+How to integrate `ensis-ui` into a host app (desktop shell, admin console, or marketing site). Read the root [README.md](../README.md) first. Architecture and catalog: [components.en.md](./components.en.md). Chinese: [consumers.md](./consumers.md).
 
-Usage, when-to-use, and API live only on the docs site: [https://blair-shang.github.io/niuma-ui/](https://blair-shang.github.io/niuma-ui/) (source `site/`, local `pnpm dev:site`). `playground/` is the maintainer test bench. It does not document public usage.
+Usage, when-to-use, and API live only on the docs site: [https://blair-shang.github.io/ensis-ui/](https://blair-shang.github.io/ensis-ui/) (source `site/`, local `pnpm dev:site`). `playground/` is the maintainer test bench. It does not document public usage.
 
-**Positioning:** a workbench design system, not a lightweight general-purpose kit. Since **1.2.0** the npm package is compiled ESM. Install pulls Monaco / CodeMirror / xterm; bundle size depends on **named imports** and the entry rules below. Current release is **2.0.0**. The `1.x` branch keeps the 1.3 line.
+**Positioning:** a workbench design system, not a lightweight general-purpose kit. Since **1.2.0** the npm package is compiled ESM. Install pulls Monaco / CodeMirror / xterm; bundle size depends on **named imports** and the entry rules below. Current release is **3.0.0** (package `ensis-ui`). `1.x` and `2.x` stay on the npm package `niuma-ui`.
 
-**Contract:** the public API is named imports from the package root. `vite build` / CI resolve that entry and do not depend on rewrite plugins. `niumaUiHost` is **serve-only** (`pnpm dev`). Do not alias the package to `src/index.ts`.
+**Contract:** the public API is named imports from the package root. `vite build` / CI resolve that entry and do not depend on rewrite plugins. `ensisUiHost` is **serve-only** (`pnpm dev`). Do not alias the package to `src/index.ts`.
 
-1. `styles.css` is standalone (tokens + reset + components) and **does not** include Tailwind. Hosts `import 'niuma-ui/styles.css'`. Add `import 'niuma-ui/brand-icons.css'` for data-source mark colors. If the app uses utility classes, import Tailwind in the host CSS.
-2. Enable `niumaUiHost()` (`niuma-ui/vite-plugins/niuma-ui-host`):
+1. `styles.css` is standalone (tokens + reset + components) and **does not** include Tailwind. Hosts `import 'ensis-ui/styles.css'`. Add `import 'ensis-ui/brand-icons.css'` for data-source mark colors. If the app uses utility classes, import Tailwind in the host CSS.
+2. Enable `ensisUiHost()` (`ensis-ui/vite-plugins/ensis-ui-host`):
    - `pnpm dev` + `link:`: named imports rewrite to `src/**/*.vue`, `styles.css` points at source, components HMR.
    - `vite build` / CI: no rewrite; resolve real re-exports from `dist/index.js`.
 3. **Do not** alias the package to `src/index.ts`. Evaluating the whole barrel pulls unused component CSS and breaks tree-shaking.
@@ -18,74 +18,74 @@ Usage, when-to-use, and API live only on the docs site: [https://blair-shang.git
 
 ## 1. How to depend
 
-The npm name is **`niuma-ui`**. Stable publishes update dist-tag **`latest`**. Prereleases use **`next`**. There is no GitHub tag named `latest`.
+The npm name is **`ensis-ui`**. Stable publishes update dist-tag **`latest`**. Prereleases use **`next`**. There is no GitHub tag named `latest`.
 
 | Case | Recommended | Notes |
 |------|-------------|--------|
-| Local HMR against this repo | `"niuma-ui": "link:../niuma-ui"` | Path is relative to the **package.json that declares the dependency** |
-| Third-party, want patches | `"niuma-ui": "^2.0.0"` | Compatible 2.x only |
-| Must reproduce | `"niuma-ui": "2.0.0"` | Exact version |
-| Stay on 1.x | `"niuma-ui": "^1.3.9"` | Tailwind-forwarding contract; see the `1.x` branch |
-| Downstream CI that used to clone this repo | `npm:niuma-ui@latest` | Install from the registry; do not checkout this git repo in product CI |
+| Local HMR against this repo | `"ensis-ui": "link:../ensis-ui"` | Path is relative to the **package.json that declares the dependency** |
+| Third-party, want patches | `"ensis-ui": "^3.0.0"` | Compatible 3.x only |
+| Must reproduce | `"ensis-ui": "3.0.0"` | Exact version |
+| Stay on 1.x | `"ensis-ui": "^1.3.9"` | Tailwind-forwarding contract; see the `1.x` branch |
+| Downstream CI that used to clone this repo | `npm:ensis-ui@latest` | Install from the registry; do not checkout this git repo in product CI |
 
-Open-source baseline **1.0.0**, [Apache License 2.0](../LICENSE). The old scoped name `@niuma/ui` is not published — use **`niuma-ui`**.
+Open-source baseline **1.0.0**, [Apache License 2.0](../LICENSE). The old scoped name `@niuma/ui` is not published — use **`ensis-ui`**.
 
 ### 1.1 Local `link` (development)
 
 ```text
 workspace/
-  niuma-ui/          # this repository
-  your-app/          # host (use ../../niuma-ui if the app lives in a subfolder)
+  ensis-ui/          # this repository
+  your-app/          # host (use ../../ensis-ui if the app lives in a subfolder)
 ```
 
 ```json
 {
   "dependencies": {
-    "niuma-ui": "link:../niuma-ui",
+    "ensis-ui": "link:../ensis-ui",
     "vue": "^3.5.0"
   }
 }
 ```
 
 ```bash
-cd ../niuma-ui && pnpm install   # prepare builds dist when missing
+cd ../ensis-ui && pnpm install   # prepare builds dist when missing
 cd ../your-app && pnpm install
 pnpm dev
 ```
 
-`exports` only resolve `dist` (same as Vue / Vite). After clone, `pnpm install` in **niuma-ui** runs `prepare` and builds plugins + the barrel. With `link:` + `pnpm dev`, `niumaUiHost` points used components at sibling `src/` for HMR. Production / CI still resolve npm `dist`. Rebuild after changing Vite plugin sources (`pnpm build`).
+`exports` only resolve `dist` (same as Vue / Vite). After clone, `pnpm install` in **ensis-ui** runs `prepare` and builds plugins + the barrel. With `link:` + `pnpm dev`, `ensisUiHost` points used components at sibling `src/` for HMR. Production / CI still resolve npm `dist`. Rebuild after changing Vite plugin sources (`pnpm build`).
 
 ### 1.2 npm (recommended for everyone else)
 
 ```bash
-pnpm add niuma-ui          # current latest
-pnpm add niuma-ui@2.0.0    # pin
+pnpm add ensis-ui          # current latest
+pnpm add ensis-ui@3.0.0    # pin
 ```
 
-Prefer a semver range over `git+https://…#v2.0.0` unless you cannot reach npm. Do not checkout `ref: latest` from GitHub — that tag does not exist.
+Prefer a semver range over `git+https://…#v3.0.0` unless you cannot reach npm. Do not checkout `ref: latest` from GitHub — that tag does not exist.
 
 ### 1.3 Downstream CI that still commits `link:` (optional)
 
 If a host still commits `link:` in `package.json`, CI should rewrite it to npm and **must not** clone this git repo:
 
 ```bash
-pnpm pkg set "dependencies.niuma-ui=npm:niuma-ui@${NIUMA_UI_VERSION:-latest}"
+pnpm pkg set "dependencies.ensis-ui=npm:ensis-ui@${NIUMA_UI_VERSION:-latest}"
 pnpm install --no-frozen-lockfile
 ```
 
-`--frozen-lockfile` fights `latest`. Pin with `NIUMA_UI_VERSION=2.0.0` when you need a known build.
+`--frozen-lockfile` fights `latest`. Pin with `NIUMA_UI_VERSION=3.0.0` (the package installed is `ensis-ui`) when you need a known build.
 
 ## 2. Minimal integration
 
-1. Install `vue` (peer) and `niuma-ui`.
+1. Install `vue` (peer) and `ensis-ui`.
 2. Import styles once at the app entry:
 
    ```ts
-   import 'niuma-ui/styles.css'
-   import 'niuma-ui/brand-icons.css' // optional: official data-source mark colors
+   import 'ensis-ui/styles.css'
+   import 'ensis-ui/brand-icons.css' // optional: official data-source mark colors
    ```
 
-   Do not write `@import 'niuma-ui/src/styles.css'`.
+   Do not write `@import 'ensis-ui/src/styles.css'`.
 
 3. Wrap the root with `RsConfigProvider`:
 
@@ -97,7 +97,7 @@ pnpm install --no-frozen-lockfile
 
    Omit `locale` to follow the host language (Chinese systems stay on `zh-CN`). Extra languages: [locales.en.md](./locales.en.md).
 
-4. Import components and composables only from `niuma-ui`. Do not install or import `reka-ui`.
+4. Import components and composables only from `ensis-ui`. Do not install or import `reka-ui`.
 
 ### Theme and brand
 
@@ -107,7 +107,7 @@ pnpm install --no-frozen-lockfile
 - Override the same `--rs-*` names in host CSS. See [`src/theme/brand.example.css`](../src/theme/brand.example.css).
 - Switchable skins call `applyColorTheme({ id, label, uiTheme, colors })` and may only set `RS_COLOR_THEME_VARS`. `clearColorTheme()` restores the built-in sheet. Theme ids are not translated.
 - Override text with `--rs-text-primary` (do not start new overrides on `--rs-text`).
-- Brand mark colors are optional: `import 'niuma-ui/brand-icons.css'`. Without it, marks are monochrome.
+- Brand mark colors are optional: `import 'ensis-ui/brand-icons.css'`. Without it, marks are monochrome.
 - Omitted `locale` follows the host language and falls back to `zh-CN`. Extra languages: [locales.en.md](./locales.en.md) (`registerRsLocale` + `rsLocaleMessageKeys`). `t()` supports `{count, plural, one {#} other {#}}`. RTL: `dir="rtl"` or `{ dir: 'rtl' }` when registering.
 - Subsystems: `--rs-table-*`, `--rs-terminal-*`, `--rs-code-*`, `--rs-prose-*`.
 - Type scale: `--rs-font-size-*`, `--rs-font-weight-*`, `--rs-font-sans|mono|serif`.
@@ -115,7 +115,7 @@ pnpm install --no-frozen-lockfile
 
 ### TypeScript
 
-The npm entry is compiled ESM + `.d.ts` (types point at `.js`, not `.vue`). Host `tsconfig` should use `"moduleResolution": "bundler"` / `node16` / `nodenext`. Do not path-map into this package’s `src/`. `pnpm dev` + `niumaUiHost` already points at source for HMR.
+The npm entry is compiled ESM + `.d.ts` (types point at `.js`, not `.vue`). Host `tsconfig` should use `"moduleResolution": "bundler"` / `node16` / `nodenext`. Do not path-map into this package’s `src/`. `pnpm dev` + `ensisUiHost` already points at source for HMR.
 
 ## 3. Vite
 
@@ -126,7 +126,7 @@ import { dirname } from 'node:path'
 import { createRequire } from 'node:module'
 
 const require = createRequire(import.meta.url)
-const uiRoot = dirname(require.resolve('niuma-ui/package.json'))
+const uiRoot = dirname(require.resolve('ensis-ui/package.json'))
 
 export default defineConfig({
   server: {
@@ -140,18 +140,18 @@ export default defineConfig({
 ### 3.2 Official plugins
 
 ```ts
-import { niumaUiHost } from 'niuma-ui/vite-plugins/niuma-ui-host'
-import { monacoZhNlsPlugin } from 'niuma-ui/vite-plugins/monaco-zh-nls'
-import { silenceAntlrParseConsole } from 'niuma-ui/vite-plugins/silence-antlr-parse-console'
+import { ensisUiHost } from 'ensis-ui/vite-plugins/ensis-ui-host'
+import { monacoZhNlsPlugin } from 'ensis-ui/vite-plugins/monaco-zh-nls'
+import { silenceAntlrParseConsole } from 'ensis-ui/vite-plugins/silence-antlr-parse-console'
 
 export default defineConfig({
-  plugins: [...niumaUiHost()],
+  plugins: [...ensisUiHost()],
 })
 ```
 
 | Plugin | Use |
 |--------|-----|
-| `niumaUiHost` | Recommended for local `link`. Serve-only HMR and styles alias. Build uses the package entry. |
+| `ensisUiHost` | Recommended for local `link`. Serve-only HMR and styles alias. Build uses the package entry. |
 | `monacoZhNlsPlugin` | Chinese NLS for Monaco context menus (optional) |
 | `silenceAntlrParseConsole` | Quiets unfinished SQL-language parse logs (optional) |
 
@@ -170,8 +170,8 @@ export default defineConfig({
   optimizeDeps: {
     entries: [
       'index.html',
-      require.resolve('niuma-ui/vite-prebundle/codemirror'),
-      require.resolve('niuma-ui/vite-prebundle/xterm'),
+      require.resolve('ensis-ui/vite-prebundle/codemirror'),
+      require.resolve('ensis-ui/vite-prebundle/xterm'),
     ],
   },
 })
@@ -181,9 +181,9 @@ export default defineConfig({
 
 The root entry aggregates a full workbench surface.
 
-- Always `import { RsButton } from 'niuma-ui'`. Marketing sites re-export used symbols from `src/ui.ts`.
-- Do not `import * as UI from 'niuma-ui'`.
-- Styles always `niuma-ui/styles.css`.
+- Always `import { RsButton } from 'ensis-ui'`. Marketing sites re-export used symbols from `src/ui.ts`.
+- Do not `import * as UI from 'ensis-ui'`.
+- Styles always `ensis-ui/styles.css`.
 
 ## 5. RsTable SSR / charts
 
@@ -199,17 +199,17 @@ The root entry aggregates a full workbench surface.
 
 ## 7. FAQ
 
-**Q: After `link`, `dist/vite-plugins/niuma-ui-host.js` is missing?**  
-A: `dist` is not committed. Run `pnpm install` (or `pnpm build`) at the niuma-ui root. Do not point `exports` at source `.ts`.
+**Q: After `link`, `dist/vite-plugins/ensis-ui-host.js` is missing?**  
+A: `dist` is not committed. Run `pnpm install` (or `pnpm build`) at the ensis-ui root. Do not point `exports` at source `.ts`.
 
 **Q: `link` resolves the wrong folder?**  
-A: The path is relative to the **package.json that declares the dependency**, not the repo root. An app under `web/` usually needs `../../niuma-ui`.
+A: The path is relative to the **package.json that declares the dependency**, not the repo root. An app under `web/` usually needs `../../ensis-ui`.
 
 **Q: Do I still need `shamefully-hoist=true`?**  
 A: No. The published package is compiled; pnpm isolation can resolve `reka-ui` and friends.
 
 **Q: Dev looks fine, CI looks unstyled?**  
-A: Check that you `import 'niuma-ui/styles.css'` and did not alias the root entry to `src/index.ts`. `niumaUiHost` does not run in `vite build`. 2.0 styles do not depend on Tailwind.
+A: Check that you `import 'ensis-ui/styles.css'` and did not alias the root entry to `src/index.ts`. `ensisUiHost` does not run in `vite build`. 2.0 styles do not depend on Tailwind.
 
 **Q: Must I use pnpm / Vite?**  
 A: Install with npm, pnpm, or yarn. Ordinary components are not Vite-only. `RsMonacoEditor` and the official `vite-plugins/*` need Vite 5+ (workers / plugin API).
@@ -225,8 +225,8 @@ A: [Apache License 2.0](../LICENSE). See [NOTICE](../NOTICE). Dependencies keep 
 
 ## 8. Support
 
-- Issues: https://github.com/Blair-Shang/niuma-ui/issues  
+- Issues: https://github.com/Blair-Shang/ensis-ui/issues  
 - Security: [SECURITY.md](../SECURITY.md)  
 - Contributing: [CONTRIBUTING.md](../CONTRIBUTING.md)  
 
-When discussing design or API, include host framework versions, a minimal reproduction, and expected vs actual behavior. Third-party products should pin a minor (`^2.0.0` and up) and record the version in their own docs.
+When discussing design or API, include host framework versions, a minimal reproduction, and expected vs actual behavior. Third-party products should pin a minor (`^3.0.0` and up) and record the version in their own docs.

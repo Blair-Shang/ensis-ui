@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { RsButton, RsCodeEditor, type RsCodeEditorExpose, type RsCodeEditorLanguage } from 'niuma-ui'
+import { RsButton, RsCodeEditor, type RsCodeEditorExpose, type RsCodeEditorLanguage } from 'ensis-ui'
 import DocDemo from '../components/DocDemo.vue'
 import { useSiteDemo } from '../composables/use-site-i18n'
 
-const json = ref('{\n  "name": "niuma-ui"\n}')
+const json = ref('{\n  "name": "ensis-ui"\n}')
 const readyCount = ref(0)
 const language = ref<RsCodeEditorLanguage>('json')
 const languageDoc = ref('{\n  "ok": true\n}')
@@ -14,7 +14,7 @@ const disabled = ref(false)
 const wrap = ref(true)
 const themeDoc = ref('{\n  "theme": "light"\n}')
 const autoDoc = ref('{\n  "theme": "auto"\n}')
-const diagDoc = ref('{\n  "name": "niuma-ui",\n  "version": 1\n}')
+const diagDoc = ref('{\n  "name": "ensis-ui",\n  "version": 1\n}')
 const diagEditor = ref<RsCodeEditorExpose | null>(null)
 const methodLog = ref('')
 const toolbarDoc = ref('select id from users\n')
@@ -84,7 +84,7 @@ const assistNote = computed(() => assistLog.value || copy.value.assistIdle)
 const languageSamples: Record<string, string> = {
   json: '{\n  "ok": true\n}',
   sql: 'select id from users\n',
-  toml: 'name = "niuma-ui"\n',
+  toml: 'name = "ensis-ui"\n',
 }
 
 function pickLanguage(next: RsCodeEditorLanguage) {

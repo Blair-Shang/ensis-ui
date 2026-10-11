@@ -1,7 +1,7 @@
-# niuma-ui
+# ensis-ui
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
-[![npm](https://img.shields.io/npm/v/niuma-ui.svg)](https://www.npmjs.com/package/niuma-ui)
+[![npm](https://img.shields.io/npm/v/ensis-ui.svg)](https://www.npmjs.com/package/ensis-ui)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5+-42b883.svg)](https://vuejs.org/)
 [![Node](https://img.shields.io/badge/Node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
 
@@ -11,16 +11,16 @@ Vue 3 **workbench** design system: consistent `Rs*` components, `--rs-*` tokens,
 
 Built for ops consoles, database workbenches, and internal admin UIs. Marketing sites can use named imports. `npm install` pulls Monaco, CodeMirror, and xterm; named imports control the bundle.
 
-**Status:** [Apache License 2.0](./LICENSE) since v1.0.0. Compiled ESM on npm since v1.2.0. Current line is **2.0.0**. The `1.x` branch keeps the 1.3 line.
+**Status:** [Apache License 2.0](./LICENSE) since v1.0.0. Compiled ESM on npm since v1.2.0. Current line is **3.0.0** (`ensis-ui`). `1.x` and `2.x` stay on the npm package `niuma-ui`.
 
 ## Features
 
 - **Design tokens** — light / dark / system via `data-rs-theme` and CSS variables; hosts override a brand layer
 - **Rs\* components** — Button, Form, Dialog, Table, Tree, Tabs, Anchor, and more
 - **Tooling** — Monaco, CodeMirror, xterm (import only on routes that need them)
-- **Accessibility** — native controls and ARIA; apps depend only on `niuma-ui`
+- **Accessibility** — native controls and ARIA; apps depend only on `ensis-ui`
 - **i18n** — omitted `locale` follows the host language (`zh*` → `zh-CN`, `en*` → `en-US`); unknown tags fall back to `zh-CN`. Extra languages: `registerRsLocale` ([guide](./docs/locales.en.md))
-- **Vite** — `import { RsButton } from 'niuma-ui'` is enough to bundle; `niumaUiHost` is local `pnpm dev` HMR only
+- **Vite** — `import { RsButton } from 'ensis-ui'` is enough to bundle; `ensisUiHost` is local `pnpm dev` HMR only
 
 ## Requirements
 
@@ -30,16 +30,16 @@ Built for ops consoles, database workbenches, and internal admin UIs. Marketing 
 | Package manager | npm / pnpm / yarn (this repo develops with pnpm ≥ 9) |
 | Vue | ^3.5 (`peerDependency`) |
 | Bundler | Vite 5+ recommended; `RsMonacoEditor` needs Vite `?worker` |
-| Styles | `import 'niuma-ui/styles.css'` (standalone CSS, no Tailwind) |
+| Styles | `import 'ensis-ui/styles.css'` (standalone CSS, no Tailwind) |
 
 ## Install
 
 ```bash
-pnpm add niuma-ui
-# or: npm install niuma-ui / yarn add niuma-ui
+pnpm add ensis-ui
+# or: npm install ensis-ui / yarn add ensis-ui
 ```
 
-Prefer a range such as `^2.0.0`. Pin **2.0.0** for a bit-for-bit install. Use `niuma-ui@1` for the 1.x line.
+Prefer a range such as `^3.0.0`. Pin **3.0.0** for a bit-for-bit install. Use `niuma-ui@2` for the 2.x line and `niuma-ui@1` for the 1.x line.
 
 Local `link`, Vite plugins, and bundle size: **[Consumer guide](./docs/consumers.en.md)** ([中文](./docs/consumers.md)).
 
@@ -48,7 +48,7 @@ Local `link`, Vite plugins, and bundle size: **[Consumer guide](./docs/consumers
 ```ts
 // main.ts
 import { createApp } from 'vue'
-import 'niuma-ui/styles.css'
+import 'ensis-ui/styles.css'
 import App from './App.vue'
 
 createApp(App).mount('#app')
@@ -57,7 +57,7 @@ createApp(App).mount('#app')
 ```vue
 <!-- App.vue -->
 <script setup lang="ts">
-import { RsConfigProvider, RsButton } from 'niuma-ui'
+import { RsConfigProvider, RsButton } from 'ensis-ui'
 </script>
 
 <template>
@@ -72,7 +72,7 @@ Omit `locale` to follow the host language. Chinese systems stay on `zh-CN`. Comm
 ## Usage
 
 1. Named-import from the package root only. Do not `import *`.
-2. Import `niuma-ui/styles.css` once, then your brand CSS.
+2. Import `ensis-ui/styles.css` once, then your brand CSS.
 3. Wrap the app with `RsConfigProvider` (theme, locale, default control size).
 4. Light sites re-export used symbols from their own `ui.ts`. Do not alias the package to this repo’s `src/index.ts`.
 
@@ -80,7 +80,7 @@ Component APIs live on the docs site. The architecture contract is for maintaine
 
 ## Docs
 
-- **Component site:** [https://blair-shang.github.io/niuma-ui/](https://blair-shang.github.io/niuma-ui/) (source: `site/`)
+- **Component site:** [https://blair-shang.github.io/ensis-ui/](https://blair-shang.github.io/ensis-ui/) (source: `site/`)
 - Local docs: `pnpm dev:site` → http://127.0.0.1:5181
 - **How to write demos and APIs:** [site/README.en.md](./site/README.en.md) ([中文](./site/README.md)) — catalog must list props / events / slots / methods; demos are bilingual and events must be visible
 - `playground/` is internal smoke / visual regression only (`pnpm dev` → :5180). It is not usage documentation.
@@ -118,7 +118,7 @@ Stable publishes set npm dist-tag **`latest`**; prereleases use **`next`**. Ther
 
 Icons: [Lucide](https://lucide.dev/). Editors: [Monaco](https://microsoft.github.io/monaco-editor/), [CodeMirror](https://codemirror.net/). Terminal: [xterm.js](https://xtermjs.org/).
 
-- Docs: https://blair-shang.github.io/niuma-ui/
-- npm: https://www.npmjs.com/package/niuma-ui
-- Source: https://github.com/Blair-Shang/niuma-ui
-- Issues: https://github.com/Blair-Shang/niuma-ui/issues
+- Docs: https://blair-shang.github.io/ensis-ui/
+- npm: https://www.npmjs.com/package/ensis-ui
+- Source: https://github.com/Blair-Shang/ensis-ui
+- Issues: https://github.com/Blair-Shang/ensis-ui/issues

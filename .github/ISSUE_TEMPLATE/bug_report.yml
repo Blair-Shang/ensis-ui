@@ -1,5 +1,5 @@
 name: Bug report / 缺陷报告
-description: Report a defect in niuma-ui / 报告 niuma-ui 中的缺陷
+description: Report a defect in ensis-ui / 报告 ensis-ui 中的缺陷
 title: "[bug]: "
 labels: ["bug"]
 body:
@@ -37,7 +37,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: niuma-ui version
+      label: ensis-ui version
       placeholder: "1.3.8"
     validations:
       required: true

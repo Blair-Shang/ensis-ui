@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { RsCodeBlock } from 'niuma-ui'
+import { RsCodeBlock } from 'ensis-ui'
 import { getGuide } from '../catalog/guides'
 import DocPager from '../components/DocPager.vue'
 import ThemeColorDemo from '../demos/theme-color.vue'

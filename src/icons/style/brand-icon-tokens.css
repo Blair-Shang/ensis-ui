@@ -1,6 +1,6 @@
 /**
  * 工作台品牌 mark 色（可选）。
- * 用法：在 styles.css 之后 `import 'niuma-ui/brand-icons.css'`。
+ * 用法：在 styles.css 之后 `import 'ensis-ui/brand-icons.css'`。
  * 不引入时，mark 走 currentColor，与 Lucide 一致。
  */
 

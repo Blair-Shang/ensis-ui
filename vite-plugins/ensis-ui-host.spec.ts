@@ -10,10 +10,10 @@ import {
   rewriteHostModule,
   rewriteHostStatement,
   scriptBlocks,
-  type NiumaUiBinding,
-} from './niuma-ui-host'
+  type EnsisUiBinding,
+} from './ensis-ui-host'
 
-const map = new Map<string, NiumaUiBinding>([
+const map = new Map<string, EnsisUiBinding>([
   ['RsButton', { from: './components/button/RsButton.vue', kind: 'default' }],
   ['supportsRsButtonTone', { from: './components/button/button-utils', kind: 'named' }],
 ])

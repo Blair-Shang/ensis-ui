@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RsButton, RsForm, RsTextarea, type RsTextareaExpose } from 'niuma-ui'
+import { RsButton, RsForm, RsTextarea, type RsTextareaExpose } from 'ensis-ui'
 import DemoBlock from '../components/DemoBlock.vue'
 import DemoPage, { type DemoApiRow } from '../components/DemoPage.vue'
 
