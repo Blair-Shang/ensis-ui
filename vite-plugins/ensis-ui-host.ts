@@ -1,6 +1,6 @@
 /**
- * 第一方宿主插件：只服务 pnpm dev（源码 HMR、styles alias）。
- * vite build / CI 走包主入口，不改写导入。
+ * 第一方宿主插件：只服务 pnpm dev + link 源码（HMR、styles alias）。
+ * 发布桶（无 src）与 vite build / CI：走包主入口，不改写导入。
  * 禁止把 @niuma/ui 别名到 src/index.ts（评估整桶会灌入未使用组件 CSS）。
  *
  * 写法：工厂 + options、createFilter、es-module-lexer 定位静态 import/export、
@@ -151,6 +151,8 @@ function ensisUiHostRewrite(ctx: HostContext): Plugin {
       ctx.map = loadRuntimeBindings(ctx.root, ctx.useSource)
     },
     async transform(code, id) {
+      // 发布桶没有 src：保持包根具名导入，勿改成未在 exports 里的子路径。
+      if (!ctx.useSource) return null
       if (!ctx.filter(id)) return null
       if (!code.includes('@niuma/ui') && !code.includes('niuma-ui') && !code.includes('ensis-ui')) return null
       const rewrite = () =>

@@ -6,6 +6,12 @@
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-10-15
+
+### 修复
+
+- `ensisUiHost`：npm 发布桶没有 `src/` 时，`pnpm dev` 不再把包根具名导入改写成 `exports` 未声明的子路径（如 `@niuma/ui/theme/apply.js`），避免 Vite `Missing "./…" specifier`。只有 `link:` 带源码时才改写到 `src` 做 HMR。
+
 ## [3.0.0] - 2026-10-11
 
 ### 变更
