@@ -352,11 +352,15 @@ export function startsWithCursorHome(data: string): boolean {
 }
 
 /**
- * 在本地解析层重置滚动边距等模式（不发给 PTY）。
- * 仅在全屏清屏等明确「新一轮绘制」时调用，避免打断进行中的 TUI 光标位置。
+ * 在本地解析层把滚动边距恢复成整屏（不发给 PTY）。
+ * `CSI r` 会把光标拉到左上角。若它排在 `CSI ? 1049 h` 之前，vim 保存的就是顶行，
+ * 退出后输入画在视口顶部。长输出把提示符顶在最后一行时尤其明显，所以复位后把光标放回原位。
  */
 export function resetLocalTerminalModes(terminal: Terminal): void {
-  terminal.write('\x1b[r')
+  const buffer = terminal.buffer.active
+  const row = buffer.cursorY + 1
+  const col = Math.min(buffer.cursorX, Math.max(terminal.cols - 1, 0)) + 1
+  terminal.write(`\x1b[r\x1b[${row};${col}H`)
 }
 
 export function snapTerminalViewportToBottom(terminal: Terminal): void {

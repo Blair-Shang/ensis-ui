@@ -240,14 +240,15 @@ describe('terminal-utils', () => {
     const scrollToBottom = vi.fn()
     const write = vi.fn()
     const normal = {
+      cols: 80,
       scrollToBottom,
       write,
-      buffer: { active: { type: 'normal', viewportY: 0, baseY: 0 } },
+      buffer: { active: { type: 'normal', viewportY: 0, baseY: 0, cursorX: 4, cursorY: 2 } },
     } as unknown as import('@xterm/xterm').Terminal
     expect(needsPtyWriteViewportPrep('\x1b[H', normal)).toBe(false)
     expect(needsPtyWriteViewportPrep('\x1b[2J', normal)).toBe(true)
     prepareTerminalForPtyWrite(normal, '\x1b[2J')
-    expect(write).toHaveBeenCalledWith('\x1b[r')
+    expect(write).toHaveBeenCalledWith('\x1b[r\x1b[3;5H')
     expect(scrollToBottom).toHaveBeenCalled()
 
     const alternate = {
