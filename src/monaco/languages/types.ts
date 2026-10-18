@@ -5,6 +5,7 @@ export type MonacoBuiltinLanguage =
   | 'typescript'
   | 'sql'
   | 'yaml'
+  | 'xml'
   | 'plaintext'
 
 /** SQL 方言 languageId（业务侧注册：Worker 或 Bridge LSP）。

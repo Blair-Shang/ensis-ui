@@ -58,6 +58,7 @@ describe('monaco-editor-utils', () => {
     expect(isManagedSqlDialect('sql')).toBe(false)
     expect(isManagedSqlDialect('pgsql')).toBe(false)
     expect(completionLanguages('json')).toEqual(['json'])
+    expect(completionLanguages('xml')).toEqual(['xml'])
     expect(completionLanguages('mysql')).toEqual([])
     expect(completionLanguages('pgsql')).toEqual([])
   })
@@ -81,6 +82,20 @@ describe('monaco-editor-utils', () => {
       filterGraceful: true,
       showIcons: false,
     })
+    const xml = mergeMonacoEditorOptions({
+      wordWrap: 'off',
+      guides: { indentation: true, bracketPairs: true },
+    }, 'xml')
+    expect(xml.wordWrap).toBe('off')
+    expect(xml.bracketPairColorization).toEqual({ enabled: false })
+    expect(xml.matchBrackets).toBe('never')
+    expect(xml.guides).toEqual({
+      indentation: true,
+      bracketPairs: false,
+      bracketPairsHorizontal: false,
+      highlightActiveBracketPair: false,
+    })
+    expect(mergeMonacoEditorOptions(undefined, 'json')).toEqual({})
   })
 
   it('converts css colors and skips values Monaco cannot store', () => {

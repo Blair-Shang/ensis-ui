@@ -15,6 +15,7 @@ const languages: { key: MonacoLanguage; label: string; sample: string }[] = [
   { key: 'typescript', label: 'TypeScript', sample: 'interface User {\n  id: string\n  name: string\n}\n\nexport function getUser(id: string): User {\n  return { id, name: "Alice" }\n}' },
   { key: 'sql', label: 'SQL', sample: 'SELECT\n  u.id,\n  u.name,\n  COUNT(o.id) AS orders\nFROM users u\nLEFT JOIN orders o ON o.user_id = u.id\nWHERE u.status = \'active\'\nGROUP BY u.id, u.name\nORDER BY orders DESC\nLIMIT 20;' },
   { key: 'yaml', label: 'YAML', sample: 'server:\n  host: localhost\n  port: 8080\n\ndatabase:\n  url: mongodb://localhost:27017\n  name: niuma\n  maxPoolSize: 10' },
+  { key: 'xml', label: 'XML', sample: '<server>\n  <host>localhost</host>\n  <port>8080</port>\n</server>' },
 ]
 const activeLang = ref<MonacoLanguage>('json')
 const langSample = ref(languages[0].sample)
@@ -101,7 +102,7 @@ const themePick = ref<RsMonacoEditorTheme>('auto')
 
     <!-- 多语言 -->
     <DemoBlock title="语言 language">
-      <p class="hint">支持 <code>json</code>、<code>javascript</code>、<code>typescript</code>、<code>sql</code>、<code>yaml</code>。</p>
+      <p class="hint">支持 <code>json</code>、<code>javascript</code>、<code>typescript</code>、<code>sql</code>、<code>yaml</code>、<code>xml</code>。</p>
       <div class="lang-tabs">
         <RsButton
           v-for="lang in languages"

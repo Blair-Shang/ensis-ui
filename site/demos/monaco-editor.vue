@@ -31,6 +31,7 @@ const languages: { key: MonacoLanguage; label: string; sample: string }[] = [
   { key: 'typescript', label: 'TypeScript', sample: 'export function id(value: string): string {\n  return value\n}' },
   { key: 'sql', label: 'SQL', sample: 'select id, name\nfrom users\nwhere active = 1' },
   { key: 'yaml', label: 'YAML', sample: 'server:\n  port: 8080' },
+  { key: 'xml', label: 'XML', sample: '<server>\n  <port>8080</port>\n</server>' },
 ]
 const activeLang = ref<MonacoLanguage>('json')
 const langSample = ref(languages[0]?.sample ?? '')

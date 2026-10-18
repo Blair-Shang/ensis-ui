@@ -103,6 +103,7 @@ const SNIPPET_LANGUAGES = new Set<string>([
   'plaintext',
   'sql',
   'yaml',
+  'xml',
   'json',
 ])
 
@@ -171,14 +172,16 @@ export function completionReplaceRange(lineNumber: number, column: number, prefi
   }
 }
 
-/** 合并业务侧 options；suggest 做一层浅合并，避免整对象覆盖默认。 */
+/**
+ * 合并业务侧 options；suggest 做一层浅合并，避免整对象覆盖默认。
+ * XML 的内置括号是 `<` `>`，彩色括号会把标签之间整段涂色，这里关掉。
+ */
 export function mergeMonacoEditorOptions(
   overrides: Record<string, unknown> | undefined,
   language: string | undefined,
 ): Record<string, unknown> {
-  if (!overrides) return {}
-  const out: Record<string, unknown> = { ...overrides }
-  if (overrides.suggest && typeof overrides.suggest === 'object' && !Array.isArray(overrides.suggest)) {
+  const out: Record<string, unknown> = overrides ? { ...overrides } : {}
+  if (overrides?.suggest && typeof overrides.suggest === 'object' && !Array.isArray(overrides.suggest)) {
     out.suggest = {
       snippetsPreventQuickSuggestions: false,
       filterGraceful: !isManagedSqlDialect(language),
@@ -186,6 +189,16 @@ export function mergeMonacoEditorOptions(
       ...(overrides.suggest as Record<string, unknown>),
     }
   }
+  if (language !== 'xml') return overrides ? out : {}
+  const guides = out.guides && typeof out.guides === 'object' && !Array.isArray(out.guides)
+    ? { ...(out.guides as Record<string, unknown>) }
+    : {}
+  guides.bracketPairs = false
+  guides.bracketPairsHorizontal = false
+  guides.highlightActiveBracketPair = false
+  out.guides = guides
+  out.bracketPairColorization = { enabled: false }
+  out.matchBrackets = 'never'
   return out
 }
 
