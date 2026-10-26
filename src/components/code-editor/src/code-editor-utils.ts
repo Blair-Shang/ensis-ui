@@ -154,4 +154,8 @@ export interface RsCodeEditorExpose {
   goToPosition: (line: number, column?: number) => void
   /** 聚焦编辑区。禁用或未就绪时无操作。 */
   focus: () => void
+  /** 折叠当前文档里所有可折叠范围。编辑器未就绪时无操作。 */
+  foldAll: () => void
+  /** 展开当前文档里所有已折叠范围。编辑器未就绪时无操作。 */
+  unfoldAll: () => void
 }

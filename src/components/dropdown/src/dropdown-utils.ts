@@ -29,7 +29,8 @@ export interface RsDropdownItemGroup {
   options: RsDropdownItem[]
 }
 
-export type RsDropdownItems = RsDropdownItem[] | RsDropdownItemGroup[]
+/** 同一菜单可以混放单项和分组。 */
+export type RsDropdownItems = Array<RsDropdownItem | RsDropdownItemGroup>
 
 /** 菜单宽度：trigger 对齐触发器；fit 随内容，不跟窄图标按钮 */
 export type RsDropdownContentWidth = 'trigger' | 'fit'

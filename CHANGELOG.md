@@ -6,6 +6,17 @@
 
 ## [Unreleased]
 
+
+## [3.0.4] - 2026-10-26
+
+### 新增
+
+- `RsCodeEditor`：对外增加 `foldAll()` / `unfoldAll()`。一次折叠或展开当前文档里跨行的对象和数组。编辑器未就绪时无操作。行号旁的折叠标记仍由 `foldGutter` 控制。类型记在 `RsCodeEditorExpose`。
+
+### 修复
+
+- `RsCodeEditor`：根节点从带 `role="group"` 的 `div` 改为 `fieldset`。分组语义由元素本身提供，读屏仍能读到 `aria-label`。清掉浏览器默认的外边距、内边距和 `min-content` 最小宽度，边框和圆角仍走原来的 `--rs-*`。
+
 ## [3.0.3] - 2026-10-18
 
 ### 新增

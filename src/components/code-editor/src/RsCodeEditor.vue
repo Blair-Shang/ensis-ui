@@ -3,6 +3,7 @@ import { computed, nextTick, onMounted, onUnmounted, ref, shallowRef, useId, wat
 import { basicSetup } from 'codemirror'
 import { Compartment, EditorState } from '@codemirror/state'
 import { EditorView, placeholder as cmPlaceholder, tooltips } from '@codemirror/view'
+import { foldAll as foldAllRanges, unfoldAll as unfoldAllRanges } from '@codemirror/language'
 import { oneDark } from '@codemirror/theme-one-dark'
 import { useRsI18n } from '../../../composables/useRsI18n'
 import type {
@@ -486,11 +487,19 @@ defineExpose({
     if (!isEditorViewAlive(view.value) || props.disabled) return
     view.value.focus()
   },
+  foldAll() {
+    if (!isEditorViewAlive(view.value)) return
+    foldAllRanges(view.value)
+  },
+  unfoldAll() {
+    if (!isEditorViewAlive(view.value)) return
+    unfoldAllRanges(view.value)
+  },
 })
 </script>
 
 <template>
-  <div
+  <fieldset
     :id="id"
     class="rs-code-editor"
     :class="[
@@ -504,7 +513,6 @@ defineExpose({
     ]"
     :style="rootStyle"
     :data-rs-theme="themeIsland"
-    role="group"
     :aria-label="editorLabel"
     :aria-disabled="disabled ? 'true' : undefined"
   >
@@ -575,13 +583,16 @@ defineExpose({
         </button>
       </li>
     </ul>
-  </div>
+  </fieldset>
 </template>
 
 <style scoped>
 .rs-code-editor {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
   overflow: hidden;
   border: 1px solid var(--rs-border);
   border-radius: var(--rs-radius);

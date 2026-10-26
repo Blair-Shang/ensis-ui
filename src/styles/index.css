@@ -405,7 +405,9 @@ html {
   --rs-monaco-fg: var(--rs-text-primary);
   --rs-monaco-gutter: var(--rs-surface);
   --rs-monaco-gutter-fg: var(--rs-text-tertiary);
-  --rs-monaco-line-highlight: var(--rs-surface-hover);
+  /* 当前行跟条目悬停，不用按钮用的实色 surface-hover，避免空编辑器占位变成一条灰带 */
+  --rs-monaco-line-highlight: var(--rs-item-hover);
+  --rs-monaco-placeholder: var(--rs-placeholder);
   --rs-monaco-selection: var(--rs-primary-container);
   --rs-monaco-widget-bg: var(--rs-surface-elevated);
   --rs-monaco-widget-border: var(--rs-border);
